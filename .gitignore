@@ -1,0 +1,14 @@
+*.py[co]
+.*.swp
+.DS_Store
+.nfs*
+*~
+*.sublime-*
+.chisubmit
+__pycache__
+*.gz
+.cache
+pa3/data/Conservatives.json
+pa3/data/UKLabour.json
+pa3/data/LibDems.json
+pa3/data/theSNP.json
