@@ -1,0 +1,1 @@
+{"starting_state": ["S", "I1", "I1"], "starting_seed": 20170217, "max_num_days": 100, "infection_rate": 0.5, "num_trials": 10}
