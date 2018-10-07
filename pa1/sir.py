@@ -28,9 +28,13 @@ def count_infected(city):
     '''
 
     # YOUR CODE HERE
+    infectedcount = 0
+    for person in city:
+    	if (person == "I0" or person == "I1"):
+    		infectedcount = infectedcount +1
 
     # REPLACE 0 WITH THE APPROPRIATE RETURN VALUE
-    return 0
+    return infectedcount
 
 
 def has_an_infected_neighbor(city, position):
@@ -44,11 +48,18 @@ def has_an_infected_neighbor(city, position):
     Returns:
         True, if the person has an infected neighbor, False otherwise.
     '''
-
+    assert city[position] == "S"
     # YOUR CODE HERE
+    infectedneighbor = False
+    if position == len(city)-1:
+    	if (city[0] == "I0" or city[0]=="I1" or city[position-1] == "I0" or city[position-1]== "I1"):
+    		infectedneighbor = True
+    else:
+    	if (city[position+1] == "I0" or city[position+1]=="I1" or city[position-1] == "I0" or city[position-1]== "I1"):
+    		infectedneighbor = True
 
     # REPLACE False WITH THE APPROPRIATE RETURN VALUE
-    return False
+    return infectedneighbor
 
 
 def gets_infected_at_position(city, position, infection_rate):
@@ -67,9 +78,18 @@ def gets_infected_at_position(city, position, infection_rate):
     '''
 
     # YOUR CODE HERE
+    get_infected = False
+    if has_an_infected_neighbor(city, position):
+    	if city[position] == "S":
+    		# random.seed(TEST_SEED)
+    		immunity_level = random.random()
+    		#print(immunity_level)
+    		if immunity_level < infection_rate:
+    			get_infected = True
+
 
     # REPLACE False WITH THE APPROPRIATE RETURN VALUE
-    return False
+    return get_infected
 
 
 def simulate_one_day(city, infection_rate):
@@ -98,9 +118,22 @@ def simulate_one_day(city, infection_rate):
     '''
 
     # YOUR CODE HERE
+    new_city = []
+    for i in range(0, len(city)):
+    	if city[i] == "S":
+    		if gets_infected_at_position(city, i, infection_rate):
+    			new_city.append("I1")
+    		else:
+    			new_city.append(city[i])
+    	elif city[i] == "I1":
+    		new_city.append("I0")
+    	elif city[i] == "I0":
+    		new_city.append("R")
+    	else:
+    		new_city.append(city[i])
 
     # REPLACE [] WITH THE APPROPRIATE RETURN VALUE
-    return []
+    return new_city
 
 
 def run_simulation(starting_state, random_seed, max_num_days, infection_rate):
@@ -124,9 +157,23 @@ def run_simulation(starting_state, random_seed, max_num_days, infection_rate):
     assert max_num_days >= 0
 
     # YOUR CODE HERE
+    city = []
+    #print(starting_state)
+    #print(max_num_days)
+    #print(infection_rate)
+    #print (random_seed)
+    d = 0
+    random.seed(random_seed)
+    city = simulate_one_day(starting_state, infection_rate)
+    d= d+1
 
-    # REPLACE [] and 0 WITH THE APPROPRIATE RETURN VALUES
-    return [], 0
+    #print(city)
+    while (d < max_num_days and count_infected(city) != 0):
+   		city = simulate_one_day(city, infection_rate)
+   		#print(city)
+   		d = d+1
+   		#print(d)
+    return city, d
 
 
 def compute_average_num_infected(
@@ -154,10 +201,24 @@ def compute_average_num_infected(
     assert num_trials > 0
 
     # YOUR CODE HERE
+    list_count_infected = []
+    for i in range(0, num_trials):
+        infected_city = run_simulation(starting_state, random_seed, max_num_days, infection_rate)
+        #print(infected_city)
+        infected_count = 0
+        for j in range(0,len(infected_city[0])):
+            #print(infected_city[0][j])
+            if (infected_city[0][j] == "I0" or infected_city[0][j] == "I1" or infected_city[0][j] == "R"):
+                infected_count= infected_count+1
+        list_count_infected.append(infected_count)
+        #print(infected_count)
+        random_seed = random_seed +1
+    sum_infected = 0
+    for i in list_count_infected:
+        sum_infected = sum_infected +i
+    mean_infected = sum_infected/len(list_count_infected)
 
-    # REPLACE 0.0 WITH THE APPROPRIATE RETURN VALUE
-    return 0.0
-
+    return mean_infected
 
 def infection_rate_param_sweep(
         starting_state, random_seed, d, infection_rate_list, num_trials):
@@ -168,7 +229,7 @@ def infection_rate_param_sweep(
     Inputs:
         starting_state (list of strings): the starting states of all
             members of the simulation
-        random_seed (int): the random seed to set the simulation to for
+        randostarting_state, random_seed, max_num_days, infection_ratem_seed (int): the random seed to set the simulation to for
             every single time the simulation runs. This is what the FIRST s
             simulation will use, and then will be incremented every time the
             simulation runs
@@ -183,9 +244,13 @@ def infection_rate_param_sweep(
     '''
 
     # YOUR CODE HERE
+    list_infection_rate_average = []
+    for rate_infected in infection_rate_list:
+    	infection_average = compute_average_num_infected(starting_state, random_seed, d, rate_infected, num_trials)
+    	list_infection_rate_average.append(infection_average)
 
     # REPLACE [] WITH THE APPROPRIATE RETURN VALUES
-    return []
+    return list_infection_rate_average
 
 
 ################ Do not change the code below this line #######################
