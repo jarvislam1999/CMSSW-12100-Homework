@@ -221,24 +221,25 @@ def compute_average_num_infected(
 
 	# YOUR CODE HERE
 
-	# List to get the average from
+	# List to get the infected people for each trial
 	list_count_infected = []
 
 	#Filling this list with number of infected people
 	for i in range(0, num_trials):
 		infected_city = run_simulation(starting_state, random_seed, max_num_days, infection_rate)
-		#print(infected_city)
 		infected_count = 0
 		for j in range(0,len(infected_city[0])):
-			#print(infected_city[0][j])
 			if (infected_city[0][j] == "I0" or infected_city[0][j] == "I1" or infected_city[0][j] == "R"):
 				infected_count= infected_count+1
 		list_count_infected.append(infected_count)
-		#print(infected_count)
+		# Change the seed for each trial
 		random_seed = random_seed +1
+
+	# Get the sum of all the infected people 
 	sum_infected = 0
 	for i in list_count_infected:
 		sum_infected = sum_infected +i
+	# Get the mean of infected people for all trials
 	mean_infected = sum_infected/len(list_count_infected)
 
 	return mean_infected
@@ -267,13 +268,15 @@ def infection_rate_param_sweep(
 	'''
 
 	# YOUR CODE HERE
-	list_infection_rate_average = []
+	# Initiating list
+	infected_number_list = []
+	# Running trials for different infection rates
 	for rate_infected in infection_rate_list:
 		infection_average = compute_average_num_infected(starting_state, random_seed, d, rate_infected, num_trials)
-		list_infection_rate_average.append(infection_average)
+		infected_number_list.append(infection_average)
 
 	# REPLACE [] WITH THE APPROPRIATE RETURN VALUES
-	return list_infection_rate_average
+	return infected_number_list
 
 
 ################ Do not change the code below this line #######################
