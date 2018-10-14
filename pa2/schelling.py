@@ -144,9 +144,7 @@ def evaluate_open_spot(grid, R, location, M_threshold, B_threshold, opens):
 	distance_list = []
 	R1_neighbor_list = []
 	open_spot_list = utility.find_opens(grid)
-	print(open_spot_list)
 	for loc in open_spot_list:
-		print(loc)
 		swap_value(grid, location, loc)
 		if is_satisfied(grid, R, loc, M_threshold, B_threshold): 
 			location_list.append(loc)
@@ -165,13 +163,13 @@ def evaluate_open_spot(grid, R, location, M_threshold, B_threshold, opens):
 			return second_location_list[0]
 		elif (len(second_location_list) > 1):
 			for loc in second_location_list:
-				if (R1_direct_neighbor(grid, loc) == min(R1_neighbor_list)):
+				if (R1_direct_neighbor(grid, loc) == max(R1_neighbor_list)):
 					third_location_list.append(loc)
 			if (len(third_location_list) == 1):
 				return third_location_list[0]
 			elif (len(third_location_list) > 1):
 				for loc1 in opens:
-					for loc2 in third_location_list:
+					for loc2 in reversed(third_location_list):
 						if (loc1 == loc2):
 							return loc2
 	return None
@@ -224,14 +222,14 @@ def do_simulation(grid, R, M_threshold, B_threshold, max_steps, opens):
 	count_steps = 0
 	count_relocation = 0
 	relocation_one_step = 10
-	while ((count_steps <= max_steps) and (relocation_one_step != 0)):
+	while ((count_steps < max_steps) and (relocation_one_step != 0)):
 		relocation_one_step = 0
 		relocation_one_step = simulate_one_step(grid, R, M_threshold, B_threshold, opens)
 		count_relocation += relocation_one_step
+		print(relocation_one_step)
 		count_steps += 1
 	# REPLACE -1 with an appropriate return value
 	return count_relocation
-
 
 @click.command(name="schelling")
 @click.option('--grid_file', type=click.Path(exists=True))
