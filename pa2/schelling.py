@@ -1,3 +1,6 @@
+# NAME: JARVIS LAM
+# CS 12100
+
 '''
 Schelling Model of Housing Segregation
 
@@ -104,27 +107,55 @@ def is_satisfied(grid, R, location, M_threshold, B_threshold):
 
 # Determine the distance between two locations
 def distance(location1,location2):
+	'''
+	Determine the distance between two locations on any grids. 
+
+	Inputs:
+		location1: a tuple containing the row and column of the first location in a grid
+		location2: a tuple containing the row and column of the second location in a grid
+
+	Returns: a real number which is the Euclidean distance between the two locations
+	'''
+	# Squared distance according to Euclidean geometry
 	squared_distance = (location2[0] - location1[0]) ** 2 + (location2[1] - location1[1]) ** 2
 	return squared_distance ** 0.5
 
 # Compute R-1 direct neighbors
 def R1_direct_neighbor(grid,location):
+	'''
+	Determine the R-1 direct neighbors of a particular location on the grid.
+
+	Inputs:
+		grid: the grid
+		location: a grid location tuple
+
+	Returns: the number of R-1 direct neighbors of a particular location on the grid
+	'''	
 	assert utility.is_grid(grid)
 
-	border_count = 0
-	if (len(grid) == 1):
-		return 0
-	if (location[0] == 0 or location[0] == len(grid) - 1):
-		border_count += 1
-	if (location[1] == 0 or location[1] == len(grid) - 1):
-		border_count += 1
-	if (border_count == 0):
-		return 8;
-	elif (border_count == 1):
-		return 5;
-	elif (border_count == 2):
-		return 3;
-	return 8;
+	lrow = location[0]
+	lcol = location[1]
+	occupied_count = 0
+	
+	r_low = lrow - 1
+	r_upp = lrow + 2
+	c_low = lcol - 1
+	c_upp = lcol + 2
+
+	if (r_low < 0):
+		r_low = 0
+	if (r_upp > len(grid)):
+		r_upp = len(grid)
+	if (c_low < 0):
+		c_low = 0
+	if (c_upp > len(grid)):
+		c_upp = len(grid)	
+
+	for r in range(r_low, r_upp):
+		for c in range(c_low, c_upp):
+			if (grid[r][c] != "O"):
+				occupied_count += 1
+	return occupied_count
 
 # Swap the values between two locations
 def swap_value(grid, location1, location2):
@@ -168,10 +199,10 @@ def evaluate_open_spot(grid, R, location, M_threshold, B_threshold, opens):
 			if (len(third_location_list) == 1):
 				return third_location_list[0]
 			elif (len(third_location_list) > 1):
-				for loc1 in opens:
-					for loc2 in reversed(third_location_list):
+				for loc1 in reversed(third_location_list):
+					for loc2 in opens:
 						if (loc1 == loc2):
-							return loc2
+							return loc1
 	return None
 
 
@@ -185,11 +216,11 @@ def simulate_one_step(grid, R, M_threshold, B_threshold, opens):
 					desired_loc = evaluate_open_spot(grid, R, current_loc, M_threshold, B_threshold, opens)
 					swap_value(grid, current_loc, desired_loc)
 					if (desired_loc != current_loc):
-						for loc3 in opens:
-							if (loc3 == desired_loc):
+						for loc3 in range(0,len(opens)):
+							if (opens[loc3] == desired_loc):
 								opens.append(current_loc)
-								del(loc3)
-						relocation_count +=1
+								del(opens[loc3])
+						relocation_count += 1
 	return relocation_count
 
 
@@ -226,7 +257,6 @@ def do_simulation(grid, R, M_threshold, B_threshold, max_steps, opens):
 		relocation_one_step = 0
 		relocation_one_step = simulate_one_step(grid, R, M_threshold, B_threshold, opens)
 		count_relocation += relocation_one_step
-		print(relocation_one_step)
 		count_steps += 1
 	# REPLACE -1 with an appropriate return value
 	return count_relocation
