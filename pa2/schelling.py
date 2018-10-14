@@ -116,6 +116,87 @@ def R1_direct_neighbor(grid,location):
 		return 0
 	if (location[0] == 0 or location[0] == len(grid) - 1):
 		border_count += 1
+	if (location[1] == 0 or location[1] == len(grid) - 1):
+		border_count += 1
+	if (border_count == 0):
+		return 8;
+	elif (border_count == 1):
+		return 5;
+	elif (border_count == 2):
+		return 3;
+	return 8;
+
+# Swap the values between two locations
+def swap_value(grid, location1, location2):
+	middle_man = grid[location1[0]][location1[1]]
+	grid[location1[0]][location1[1]] = grid[location2[0]][location2[1]]
+	grid[location2[0]][location2[1]] = middle_man
+	return None
+
+# Evaluate and return the best swapping location of a particular location
+def evaluate_open_spot(grid, R, location, M_threshold, B_threshold, opens):
+	assert grid[location[0]][location[1]] != "O"
+	assert is_satisfied(grid, R, location, M_threshold, B_threshold) == False
+	
+	location_list = []
+	second_location_list = []
+	third_location_list = []
+	distance_list = []
+	R1_neighbor_list = []
+	open_spot_list = utility.find_opens(grid)
+	print(open_spot_list)
+	for loc in open_spot_list:
+		print(loc)
+		swap_value(grid, location, loc)
+		if is_satisfied(grid, R, loc, M_threshold, B_threshold): 
+			location_list.append(loc)
+			distance_list.append(distance(location,loc))
+		swap_value(grid, location, loc)
+	if (len(location_list) == 0):
+		return location
+	elif (len(location_list) == 1):
+		return location_list[0]
+	else:
+		for loc in location_list:
+			if (distance(location,loc) == min(distance_list)):
+				second_location_list.append(loc)
+				R1_neighbor_list.append(R1_direct_neighbor(grid, loc))
+		if (len(second_location_list) == 1):
+			return second_location_list[0]
+		elif (len(second_location_list) > 1):
+			for loc in second_location_list:
+				if (R1_direct_neighbor(grid, loc) == min(R1_neighbor_list)):
+					third_location_list.append(loc)
+			if (len(third_location_list) == 1):
+				return third_location_list[0]
+			elif (len(third_location_list) > 1):
+				for loc1 in opens:
+					for loc2 in third_location_list:
+						if (loc1 == loc2):
+							return loc2
+	return None
+
+
+def simulate_one_step(grid, R, M_threshold, B_threshold, opens):
+	relocation_count = 0
+	for ro in range(0,len(grid)):
+		for co in range(0,len(grid)):
+			current_loc = (ro,co)
+			if (grid[ro][co] != "O"):
+				if (is_satisfied(grid, R, current_loc, M_threshold, B_threshold) == False):
+					desired_loc = evaluate_open_spot(grid, R, current_loc, M_threshold, B_threshold, opens)
+					swap_value(grid, current_loc, desired_loc)
+					if (desired_loc != current_loc):
+						for loc3 in opens:
+							if (loc3 == desired_loc):
+								opens.append(current_loc)
+								del(loc3)
+						relocation_count +=1
+	return relocation_count
+
+
+
+
 
 # DO NOT REMOVE THE COMMENT BELOW
 #pylint: disable-msg=too-many-arguments
@@ -140,8 +221,16 @@ def do_simulation(grid, R, M_threshold, B_threshold, max_steps, opens):
 								   "with the same number of rows and columns")
 
 	# YOUR CODE HERE
+	count_steps = 0
+	count_relocation = 0
+	relocation_one_step = 10
+	while ((count_steps <= max_steps) and (relocation_one_step != 0)):
+		relocation_one_step = 0
+		relocation_one_step = simulate_one_step(grid, R, M_threshold, B_threshold, opens)
+		count_relocation += relocation_one_step
+		count_steps += 1
 	# REPLACE -1 with an appropriate return value
-	return -1
+	return count_relocation
 
 
 @click.command(name="schelling")
