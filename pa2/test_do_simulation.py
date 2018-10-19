@@ -65,17 +65,17 @@ def helper(input_filename, expected_filename, R, M_threshold,
     expected_num_homeowners = count_homeowners(actual_grid)
     opens = utility.find_opens(actual_grid)
 
-    actual_num_steps = do_simulation(actual_grid, R, M_threshold, B_threshold,
+    actual_num_relocations = do_simulation(actual_grid, R, M_threshold, B_threshold,
                                      max_num_steps, opens)
     actual_num_homeowners = count_homeowners(actual_grid)
 
     expected_filename = os.path.join(BASE_DIR, expected_filename)
     expected_grid = utility.read_grid(expected_filename)
 
-    if actual_num_steps != expected_num_relocations:
-        s = ("actual and expected values number of steps do not match\n"
+    if actual_num_relocations != expected_num_relocations:
+        s = ("actual and expected values number of relocations do not match\n"
              "  got {:d}, expected {:d}")
-        s = s.format(actual_num_steps, expected_num_relocations)
+        s = s.format(actual_num_relocations, expected_num_relocations)
         pytest.fail(s)
 
     if actual_num_homeowners != expected_num_homeowners:
