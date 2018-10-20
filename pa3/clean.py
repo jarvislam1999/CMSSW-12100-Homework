@@ -38,14 +38,3 @@ STOP_WORDS = set(WORDS + SYMBOLS + EMOJI)
 # should be ignored.
 STOP_PREFIXES = ("@", "#", "http", "&amp")
 
-
-def remove(string_list, condition):
-    """
-    Removes those tokens from a list of strings that satisfy a condition
-
-    Inputs:
-        string_list: a list of strings
-        condition: a function that maps strings to booleans
-    """
-
-    return [string for string in string_list if not condition(string)]
