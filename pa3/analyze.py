@@ -37,16 +37,95 @@ LibDems = util.get_json_from_file("data/LibDems.json")
 '''
 
 def pre_process(tweet):
+	'''
+	Pre-process tweets and return a list of strings according 
+	to the instructions in the PA
+
+	Input:
+	tweet: the dictionary or tweet
+
+	Output:
+	The list of strings/words
+	'''
+
+	# 1	
 	# Convert string to lower case
-	lower_tweet = tweet.lower()
+	lower_tweet = (tweet['text'].lower()).replace('\n'," ")
+	lower_tweet = lower_tweet + " "
+	
 	# Break long string to a list of smaller strings/ words
-	word_list = []
-	# Indexes of white space
+	word_list_1 = []
+	# Indexes of white space and end of line
 	back_wspace = 0
 	front_wspace = 0
 	for cha in range(len(lower_tweet)):
-		if lower_tweet[cha] == " ":
+		if (lower_tweet[cha] == " " or lower_tweet[cha:cha+2] == "\n"):
 			front_wspace = cha
+
+			if (front_wspace - back_wspace > 1):
+				if(back_wspace == 0 and lower_tweet[0] != " "):
+					word_list_1.append(lower_tweet[0:front_wspace])
+				else:
+					word_list_1.append(lower_tweet[back_wspace+1:front_wspace])
+			back_wspace = front_wspace
+	
+	# 2
+	# Loop through list to remove punctuation
+
+	# Create new word list with no punctuation
+	word_list_2 = []
+	for cha in word_list_1:
+		if (len(cha) <= 1):
+			if (cha not in str(PUNCTUATION)):
+				cha1 = cha
+			else:
+				continue			
+		elif (cha[0] in str(PUNCTUATION) and cha[len(cha) - 1] in str(PUNCTUATION)):
+			cha1 = cha[1:len(cha)-1]
+		elif (cha[len(cha) - 1] in str(PUNCTUATION)):
+			cha1 = cha[0: len(cha)-1]
+		elif (cha[0] in str(PUNCTUATION)):
+			cha1 = cha[1: len(cha)]
+		else:
+			cha1 = cha
+		word_list_2.append(cha1)
+	
+	# 3 + 4
+	# Loop through list to remove unimportant words and links
+	# Create new word list with no unimportant words and links
+	word_list_3 = []
+	for cha in word_list_2:
+		if (len(cha) == 0):
+			continue
+		if (cha not in STOP_WORDS and cha[0] not in STOP_PREFIXES):
+			if len(cha) <4:
+				word_list_3.append(cha)
+			elif (cha[0:4] not in STOP_PREFIXES):
+				word_list_3.append(cha)
+	return word_list_3
+
+			
+def make_n_grams(tweet_list,n):
+	'''
+	Compute the n-grams of a tweet after preprocessing
+
+	Inputs:
+	tweet_list: The preprocessed tweet
+	n: The number n in n-grams
+
+	Output:
+	The n_gram as a list
+	'''
+	# Initializing output list
+	n_gram_list = []
+	#assert n <= len(tweet_list)
+	for item in range(len(tweet_list) - n + 1):
+		# Create sublist in the output list
+		smaller_list = []
+		for j in range(n):
+			smaller_list.append(tweet_list[item + j])
+		n_gram_list.append(tuple(smaller_list))
+	return n_gram_list
 
 def extract_entities_list(tweets, entity_key):
 	'''
@@ -166,6 +245,16 @@ def find_top_k_ngrams(tweets, n, k):
 	"""
 	Your code goes here
 	"""
+	# Intializing n_gram list
+	n_gram_list_tweets = []
+
+	for tweet in tweets:
+		processed_tweet = pre_process(tweet)
+		tweet_n_gram = make_n_grams(processed_tweet, n)
+		for item in tweet_n_gram:
+			n_gram_list_tweets.append(item)
+	return find_top_k(n_gram_list_tweets, k)
+
 
 	return []
 
