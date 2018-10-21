@@ -92,10 +92,12 @@ def find_min_count(items, min_count):
 
 	# Runs the helper function for you (DO NOT MODIFY)
 	item_counts = count_items(items)
+	
+	# YOUR CODE HERE
+	
+	#Check if list is empty
 	if (len(items) == 0):
 		return []
-	print(item_counts)
-	# YOUR CODE HERE
 
 	# Sort item_counts
 	sorted_item_counts = sort_count_pairs(item_counts)
@@ -104,7 +106,6 @@ def find_min_count(items, min_count):
 
 	# Filling the output list
 	index = 1
-	print(sorted_item_counts)
 	count_until_min = sorted_item_counts[index - 1][1]
 	while (count_until_min >= min_count and index <= len(sorted_item_counts)):
 		min_count_list.append(sorted_item_counts[index - 1])
@@ -137,6 +138,17 @@ def find_frequent(items, k):
 				" should not exceed (k-1)=" + str(k-1))
 
 		# YOUR CODE HERE
+
+		if (item in counter):
+			counter[item] += 1
+		else:
+			counter[item] = 1
+			if len(counter) > k - 1:
+				for key in list(counter):
+					counter[key] -= 1
+					if counter[key] == 0:
+						del counter[key]
+
 		# WRITE THE APPROPRIATE UPDATE LOGIC FOR COUNTER
 
 	return sort_count_pairs(counter.items())
