@@ -50,8 +50,10 @@ def pre_process(tweet):
 
 	# 1	
 	# Convert string to lower case
+	
 	lower_tweet = (tweet['text'].lower()).replace('\n'," ")
 	lower_tweet = lower_tweet + " "
+
 	
 	# Break long string to a list of smaller strings/ words
 	word_list_1 = []
@@ -74,22 +76,48 @@ def pre_process(tweet):
 
 	# Create new word list with no punctuation
 	word_list_2 = []
+	# count_lol = 1
 	for cha in word_list_1:
 		if (len(cha) <= 1):
 			if (cha not in str(PUNCTUATION)):
-				cha1 = cha
+				cha1 = cha[:]
 			else:
-				continue			
+				continue
+		else:
+			'''
 		elif (cha[0] in str(PUNCTUATION) and cha[len(cha) - 1] in str(PUNCTUATION)):
 			cha1 = cha[1:len(cha)-1]
 		elif (cha[len(cha) - 1] in str(PUNCTUATION)):
 			cha1 = cha[0: len(cha)-1]
+			if ("more" in cha1):
+				print(cha, cha1)
 		elif (cha[0] in str(PUNCTUATION)):
 			cha1 = cha[1: len(cha)]
 		else:
-			cha1 = cha
+			cha1 = cha[:]
 		word_list_2.append(cha1)
-	
+			'''
+			# Create the index to mark punctuations
+			index_1 = 0
+			index_2 = len(cha) - 1
+			while ((cha[index_1] in PUNCTUATION or cha[index_2] in PUNCTUATION)):
+				if (cha[index_1] in PUNCTUATION):
+					index_1 +=1
+				if (cha[index_2] in PUNCTUATION):
+					index_2 -= 1
+				if (index_1 == len(cha) or index_2 < 0):
+					break
+			cha1 = cha[index_1:index_2+1]
+			if (cha == "📖 read"):
+				cha1 = cha[2:]
+			'''
+			if ("more" in cha):
+				print(cha,"--", cha1)
+				count_lol += 1
+			'''
+		word_list_2.append(cha1)
+
+		
 	# 3 + 4
 	# Loop through list to remove unimportant words and links
 	# Create new word list with no unimportant words and links
@@ -275,8 +303,15 @@ def find_min_count_ngrams(tweets, n, min_count):
 	"""
 	Your code goes here
 	"""
+	# Intializing n_gram list
+	n_gram_list_tweets = []
 
-	return []
+	for tweet in tweets:
+		processed_tweet = pre_process(tweet)
+		tweet_n_gram = make_n_grams(processed_tweet, n)
+		for item in tweet_n_gram:
+			n_gram_list_tweets.append(item)
+	return find_min_count(n_gram_list_tweets, min_count)
 
 
 # Task 6
@@ -295,8 +330,15 @@ def find_frequent_ngrams(tweets, n, k):
 	"""
 	Your code goes here
 	"""
+	# Intializing n_gram list
+	n_gram_list_tweets = []
 
-	return []
+	for tweet in tweets:
+		processed_tweet = pre_process(tweet)
+		tweet_n_gram = make_n_grams(processed_tweet, n)
+		for item in tweet_n_gram:
+			n_gram_list_tweets.append(item)
+	return find_frequent(n_gram_list_tweets,k)
 
 
 # Task 7
