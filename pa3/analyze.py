@@ -52,10 +52,12 @@ def pre_process(tweet):
 	# Convert string to lower case
 	
 	lower_tweet = (tweet['text'].lower()).replace('\n'," ")
-	lower_tweet = lower_tweet + " "
-
 	
 	# Break long string to a list of smaller strings/ words
+	lower_tweet = lower_tweet.split()
+
+	'''
+	
 	word_list_1 = []
 	# Indexes of white space and end of line
 	back_wspace = 0
@@ -70,14 +72,17 @@ def pre_process(tweet):
 				else:
 					word_list_1.append(lower_tweet[back_wspace+1:front_wspace])
 			back_wspace = front_wspace
-	
+	'''
+
+
 	# 2
 	# Loop through list to remove punctuation
 
 	# Create new word list with no punctuation
 	word_list_2 = []
 	# count_lol = 1
-	for cha in word_list_1:
+	#for cha in word_list_1:
+	for cha in lower_tweet:
 		if (len(cha) <= 1):
 			if (cha not in str(PUNCTUATION)):
 				cha1 = cha[:]
@@ -108,8 +113,9 @@ def pre_process(tweet):
 				if (index_1 == len(cha) or index_2 < 0):
 					break
 			cha1 = cha[index_1:index_2+1]
-			if (cha == "📖 read"):
-				cha1 = cha[2:]
+			
+			#if (cha == "📖 read"):
+			#	cha1 = cha[2:]
 			'''
 			if ("more" in cha):
 				print(cha,"--", cha1)
@@ -357,7 +363,14 @@ def find_top_k_ngrams_by_month(tweets, n, k):
 	"""
 	Your code goes here
 	"""
+	# Intializing n_gram dictionary
+	n_gram_list_tweets = []
 
+	for tweet in tweets:
+		processed_tweet = pre_process(tweet)
+		tweet_n_gram = make_n_grams(processed_tweet, n)
+		for item in tweet_n_gram:
+			n_gram_list_tweets.append(item)
 	return []
 
 
