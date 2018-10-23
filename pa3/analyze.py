@@ -49,62 +49,34 @@ def pre_process(tweet):
 	'''
 
 	# 1	
-	# Convert string to lower case
+	# Convert string to lower case and get rid 
+	# of \n (abundant but just to make sure)
 	
 	lower_tweet = (tweet['text'].lower()).replace('\n'," ")
 	
 	# Break long string to a list of smaller strings/ words
 	lower_tweet = lower_tweet.split()
 
-	'''
-	
-	word_list_1 = []
-	# Indexes of white space and end of line
-	back_wspace = 0
-	front_wspace = 0
-	for cha in range(len(lower_tweet)):
-		if (lower_tweet[cha] == " " or lower_tweet[cha:cha+2] == "\n"):
-			front_wspace = cha
-
-			if (front_wspace - back_wspace > 1):
-				if(back_wspace == 0 and lower_tweet[0] != " "):
-					word_list_1.append(lower_tweet[0:front_wspace])
-				else:
-					word_list_1.append(lower_tweet[back_wspace+1:front_wspace])
-			back_wspace = front_wspace
-	'''
-
 
 	# 2
 	# Loop through list to remove punctuation
-
 	# Create new word list with no punctuation
+
+	# Output of step 2 list
 	word_list_2 = []
-	# count_lol = 1
-	#for cha in word_list_1:
+
 	for cha in lower_tweet:
+		# Check if the word has length of one
 		if (len(cha) <= 1):
 			if (cha not in str(PUNCTUATION)):
 				cha1 = cha[:]
 			else:
 				continue
 		else:
-			'''
-		elif (cha[0] in str(PUNCTUATION) and cha[len(cha) - 1] in str(PUNCTUATION)):
-			cha1 = cha[1:len(cha)-1]
-		elif (cha[len(cha) - 1] in str(PUNCTUATION)):
-			cha1 = cha[0: len(cha)-1]
-			if ("more" in cha1):
-				print(cha, cha1)
-		elif (cha[0] in str(PUNCTUATION)):
-			cha1 = cha[1: len(cha)]
-		else:
-			cha1 = cha[:]
-		word_list_2.append(cha1)
-			'''
 			# Create the index to mark punctuations
 			index_1 = 0
 			index_2 = len(cha) - 1
+			# Loop through words to see where invalid characters end
 			while ((cha[index_1] in PUNCTUATION or cha[index_2] in PUNCTUATION)):
 				if (cha[index_1] in PUNCTUATION):
 					index_1 +=1
@@ -112,15 +84,9 @@ def pre_process(tweet):
 					index_2 -= 1
 				if (index_1 == len(cha) or index_2 < 0):
 					break
+			# Cut invalid character
 			cha1 = cha[index_1:index_2+1]
 			
-			#if (cha == "📖 read"):
-			#	cha1 = cha[2:]
-			'''
-			if ("more" in cha):
-				print(cha,"--", cha1)
-				count_lol += 1
-			'''
 		word_list_2.append(cha1)
 
 		
@@ -139,7 +105,7 @@ def pre_process(tweet):
 	return word_list_3
 
 			
-def make_n_grams(tweet_list,n):
+def make_n_grams(tweets,n):
 	'''
 	Compute the n-grams of a tweet after preprocessing
 
@@ -152,13 +118,16 @@ def make_n_grams(tweet_list,n):
 	'''
 	# Initializing output list
 	n_gram_list = []
-	#assert n <= len(tweet_list)
-	for item in range(len(tweet_list) - n + 1):
-		# Create sublist in the output list
-		smaller_list = []
-		for j in range(n):
-			smaller_list.append(tweet_list[item + j])
-		n_gram_list.append(tuple(smaller_list))
+
+	# Filling the list
+	for tweet in tweets:
+		tweet_list = pre_process(tweet)
+		for item in range(len(tweet_list) - n + 1):
+			# Create sublist in the output list
+			smaller_list = []
+			for j in range(n):
+				smaller_list.append(tweet_list[item + j])
+			n_gram_list.append(tuple(smaller_list))
 	return n_gram_list
 
 def extract_entities_list(tweets, entity_key):
@@ -279,18 +248,9 @@ def find_top_k_ngrams(tweets, n, k):
 	"""
 	Your code goes here
 	"""
-	# Intializing n_gram list
-	n_gram_list_tweets = []
+	
+	return find_top_k(make_n_grams(tweets,n), k)
 
-	for tweet in tweets:
-		processed_tweet = pre_process(tweet)
-		tweet_n_gram = make_n_grams(processed_tweet, n)
-		for item in tweet_n_gram:
-			n_gram_list_tweets.append(item)
-	return find_top_k(n_gram_list_tweets, k)
-
-
-	return []
 
 
 # Task 5
@@ -309,15 +269,8 @@ def find_min_count_ngrams(tweets, n, min_count):
 	"""
 	Your code goes here
 	"""
-	# Intializing n_gram list
-	n_gram_list_tweets = []
-
-	for tweet in tweets:
-		processed_tweet = pre_process(tweet)
-		tweet_n_gram = make_n_grams(processed_tweet, n)
-		for item in tweet_n_gram:
-			n_gram_list_tweets.append(item)
-	return find_min_count(n_gram_list_tweets, min_count)
+	
+	return find_min_count(make_n_grams(tweets,n), min_count)
 
 
 # Task 6
@@ -336,16 +289,11 @@ def find_frequent_ngrams(tweets, n, k):
 	"""
 	Your code goes here
 	"""
-	# Intializing n_gram list
-	n_gram_list_tweets = []
+	
+	return find_frequent(make_n_grams(tweets,n),k)
 
-	for tweet in tweets:
-		processed_tweet = pre_process(tweet)
-		tweet_n_gram = make_n_grams(processed_tweet, n)
-		for item in tweet_n_gram:
-			n_gram_list_tweets.append(item)
-	return find_frequent(n_gram_list_tweets,k)
-
+def takeSecond(elem):
+	    return elem[1]
 
 # Task 7
 def find_top_k_ngrams_by_month(tweets, n, k):
@@ -364,16 +312,32 @@ def find_top_k_ngrams_by_month(tweets, n, k):
 	Your code goes here
 	"""
 	# Intializing n_gram dictionary
-	n_gram_list_tweets = []
+	# n_gram_list_tweets = []
+	final_list = []
+	dict_tweets = {}
 
 	for tweet in tweets:
-		processed_tweet = pre_process(tweet)
-		tweet_n_gram = make_n_grams(processed_tweet, n)
-		for item in tweet_n_gram:
-			n_gram_list_tweets.append(item)
+		year_month = grab_year_month(tweet['created_at'])
+
+		if (year_month not in dict_tweets):
+			dict_tweets[year_month] = []
+		dict_tweets[year_month].append(tweet)
+
+	list_key = list(dict_tweets.keys())
+	list_key.sort(key = takeSecond)
+
+	for item in list_key:
+		n_gram_list = dict_tweets[item]
+		final_list.append((item, find_top_k_ngrams(n_gram_list,n,k)))
+	print(final_list)
+	return final_list
+
+
+
+
 	return []
 
-
+	
 """
 DO NOT MODIFY PAST THIS POINT
 """
