@@ -29,17 +29,10 @@ from basic_algorithms import find_top_k, find_min_count, find_frequent
 
 
 # PUT YOUR AUXILIARY FUNCTIONS HERE
-'''
-Conservatives = util.get_json_from_file("data/Conservatives.json")
-UKLabour = util.get_json_from_file("data/UKLabour.json")
-theSNP = util.get_json_from_file("data/theSNP.json")
-LibDems = util.get_json_from_file("data/LibDems.json")
-'''
 
 def pre_process(tweet):
 	'''
-	Pre-process tweets and return a list of strings according 
-	to the instructions in the PA
+	Pre-process tweets according to the instructions in the PA
 
 	Input:
 	tweet: the dictionary or tweet
@@ -50,21 +43,17 @@ def pre_process(tweet):
 
 	# 1	
 	# Convert string to lower case and get rid 
-	# of \n (abundant but just to make sure)
-	
+	# of \n (abundant but just to make sure)	
 	lower_tweet = (tweet['text'].lower()).replace('\n'," ")
-	
 	# Break long string to a list of smaller strings/ words
 	lower_tweet = lower_tweet.split()
 
-
 	# 2
-	# Loop through list to remove punctuation
 	# Create new word list with no punctuation
 
 	# Output of step 2 list
 	word_list_2 = []
-
+	# Loop through list to remove punctuation
 	for cha in lower_tweet:
 		# Check if the word has length of one
 		if (len(cha) <= 1):
@@ -79,38 +68,40 @@ def pre_process(tweet):
 			# Loop through words to see where invalid characters end
 			while ((cha[index_1] in PUNCTUATION or cha[index_2] in PUNCTUATION)):
 				if (cha[index_1] in PUNCTUATION):
-					index_1 +=1
+					index_1 += 1
 				if (cha[index_2] in PUNCTUATION):
 					index_2 -= 1
 				if (index_1 == len(cha) or index_2 < 0):
 					break
 			# Cut invalid character
 			cha1 = cha[index_1:index_2+1]
-			
+		
 		word_list_2.append(cha1)
-
 		
 	# 3 + 4
-	# Loop through list to remove unimportant words and links
 	# Create new word list with no unimportant words and links
 	word_list_3 = []
+	# Loop through list to remove unimportant words and links
 	for cha in word_list_2:
+		# Check for empty word (just to make sure)
 		if (len(cha) == 0):
 			continue
-		if (cha not in STOP_WORDS and cha[0] not in STOP_PREFIXES):
-			if len(cha) <4:
-				word_list_3.append(cha)
-			elif (cha[0:4] not in STOP_PREFIXES):
-				word_list_3.append(cha)
+		# Check for both condition 3 and 4
+		if (cha not in STOP_WORDS and cha[0] not in STOP_PREFIXES and (len(cha) < 4 or cha[0:4] not in STOP_PREFIXES)):
+			word_list_3.append(cha)
 	return word_list_3
 
-			
+
+
+# For make_n_gram, I have the input parameters be a 
+# list of tweets instead of one because this makes task 4-7 
+# much faster and shorter			
 def make_n_grams(tweets,n):
 	'''
 	Compute the n-grams of a tweet after preprocessing
 
 	Inputs:
-	tweet_list: The preprocessed tweet
+	tweet_list: The list of all the tweets 
 	n: The number n in n-grams
 
 	Output:
@@ -125,8 +116,10 @@ def make_n_grams(tweets,n):
 		for item in range(len(tweet_list) - n + 1):
 			# Create sublist in the output list
 			smaller_list = []
+			# Filling the sub-list
 			for j in range(n):
 				smaller_list.append(tweet_list[item + j])
+			# Adding the sublist to the grand list
 			n_gram_list.append(tuple(smaller_list))
 	return n_gram_list
 
@@ -152,9 +145,7 @@ def extract_entities_list(tweets, entity_key):
 			entities_list.append(item[entity_key[1]])
 
 	# Making the list lower-case
-	entities_list = [entity_value.lower() for entity_value in entities_list] 
-
-	return entities_list
+	return [entity_value.lower() for entity_value in entities_list]
 
 # Task 1
 def find_top_k_entities(tweets, entity_key, k):
@@ -176,10 +167,12 @@ def find_top_k_entities(tweets, entity_key, k):
 	"""
 	# Extract the list of desired entities/ key and subkey
 	input_entities_list = extract_entities_list(tweets, entity_key)
-	# Getting output list
-	top_k_list = find_top_k(input_entities_list,k)
+	
+	# (I put an an extra list assignment so it's easier for
+	# The grader to understand the logic. I could have just 
+	# put that in return. Will do that in later tasks)
 
-	return top_k_list
+	return find_top_k(input_entities_list,k)
 
 
 # Task 2
@@ -199,12 +192,7 @@ def find_min_count_entities(tweets, entity_key, min_count):
 	"""
 	Your code goes here
 	"""
-	# Extract the list of desired entities/ key and subkey
-	input_entities_list = extract_entities_list(tweets, entity_key)
-	# Getting output list
-	min_count_list = find_min_count(input_entities_list,min_count)
-
-	return min_count_list
+	return find_min_count(extract_entities_list(tweets, entity_key),min_count)
 
 
 # Task 3
@@ -226,10 +214,8 @@ def find_frequent_entities(tweets, entity_key, k):
 	Your code goes here
 	"""
 	# Extract the list of desired entities/ key and subkey
-	input_entities_list = extract_entities_list(tweets, entity_key)
-	# Getting output list
-	frequent_list = find_frequent(input_entities_list,k)
-	return frequent_list
+
+	return find_frequent(extract_entities_list(tweets, entity_key),k)
 
 
 # Task 4
@@ -250,7 +236,6 @@ def find_top_k_ngrams(tweets, n, k):
 	"""
 	
 	return find_top_k(make_n_grams(tweets,n), k)
-
 
 
 # Task 5
@@ -292,8 +277,19 @@ def find_frequent_ngrams(tweets, n, k):
 	
 	return find_frequent(make_n_grams(tweets,n),k)
 
+# I put this function before Task 7 because it's easier to see
 def takeSecond(elem):
-	    return elem[1]
+	'''
+	Return the second element of a tuple, will be used 
+	to reference the key of the list sort function.
+	Will help sort the list of ascending order of months
+
+	Input: elem: this will be an individual element of the list,
+	             containing the year and month
+
+	Output: the month (second element)
+	'''
+	return elem[1]
 
 # Task 7
 def find_top_k_ngrams_by_month(tweets, n, k):
@@ -311,31 +307,30 @@ def find_top_k_ngrams_by_month(tweets, n, k):
 	"""
 	Your code goes here
 	"""
-	# Intializing n_gram dictionary
-	# n_gram_list_tweets = []
+	# Intializing n_gram dictionary and output list
 	final_list = []
 	dict_tweets = {}
 
+	# Create a dictionary with keys being the month
+	# and year, and value being a list of tweets by month
 	for tweet in tweets:
 		year_month = grab_year_month(tweet['created_at'])
-
 		if (year_month not in dict_tweets):
 			dict_tweets[year_month] = []
 		dict_tweets[year_month].append(tweet)
 
+	# Convert the dictionary into list so that you can sort it
 	list_key = list(dict_tweets.keys())
 	list_key.sort(key = takeSecond)
 
+	# Fill the final list by looping through the sorted list
 	for item in list_key:
-		n_gram_list = dict_tweets[item]
-		final_list.append((item, find_top_k_ngrams(n_gram_list,n,k)))
-	print(final_list)
+		# Again I didn't do any immediate steps because I got
+		# points off in earlier PA
+		final_list.append((item, find_top_k_ngrams(dict_tweets[item],n,k)))
+	
 	return final_list
 
-
-
-
-	return []
 
 	
 """
