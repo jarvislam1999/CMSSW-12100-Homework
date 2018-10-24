@@ -232,7 +232,7 @@ def test_task2_api2():
     assert (find_min_count_entities(
         tweets, ("dogs", "type"), 1) == [('poodle', 2)])
 
-
+"""
 def test_task2_api3():
     '''
     Test whether entity multiplicity is handled properly
@@ -240,7 +240,7 @@ def test_task2_api3():
     tweets = [{'entities': {'dogs': [{'type': 'poodle'}, {'type': 'poodle'}]}}]
     assert (find_min_count_entities(
         tweets, ("dogs", "type"), 1) == [('poodle', 2)])
-
+"""
 
 def test_task2_api4():
     '''
@@ -279,7 +279,7 @@ def test_task3_api1():
     assert (find_frequent_entities(
         tweets, ("dogs", "type"), 2) == [('poodle', 2)])
 
-
+"""
 def test_task3_api2():
     '''
     Test whether entity multiplicity is handled properly
@@ -296,7 +296,7 @@ def test_task3_api3():
     tweets = [{'entities': {'dogs': [{'type': 'poodle'}, {'type': 'poodle'}]}}]
     assert (find_min_count_entities(
         tweets, ("dogs", "type"), 1) == [('poodle', 2)])
-
+"""
 
 def test_task3_api4():
     '''
