@@ -18,9 +18,16 @@ def solve(numerator, denominator):
     """
     
     # YOUR CODE HERE
+    a = 0
+    b = numerator
+    c = denominator
+
+    while ( b >= c):
+        a[0] +=1
+        b -= c
 
     # Replace 0, 0, 0 with the appropriate return values
-    return 0, 0, 0
+    return a, b, c
 
 
 if __name__ == "__main__":

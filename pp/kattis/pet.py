@@ -13,11 +13,18 @@ import sys
 # contestant)
 def solve(contestant_scores):
     # YOUR CODE HERE
+    max_sum = 0
+    max_index = 1
+    for index, contestant in enumerate(contestant_scores):
+    	sum_contestant = sum(contestant)
+    	if max_sum < sum_contestant:
+    		max_sum = sum_contestant
+    		max_index = index + 1
 
     # Replace 1 with the winning contestant (remember that
     # contestants are 1-indexed, not 0-indexed) and replace 0
     # with the score of the winning contestant.
-    return 1, 0
+    return max_index, max_sum
 
 
 if __name__ == "__main__":
