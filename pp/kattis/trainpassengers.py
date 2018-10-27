@@ -19,7 +19,20 @@ def solve(C, stations):
     """
     
     # YOUR CODE HERE
-
+    if (stations[0][0] != 0):
+        return False
+    if (stations[len(stations) - 1][len(stations[0]) - 1] != 0):
+        return False
+    people = 0
+    for station in stations:
+        people -= station[0]
+        people += station[1]
+        if (people < 0):
+            return False
+        if (people < C and station[2] > 0):
+            return False
+        if (people > C):
+            return False
     # Replace True with your return value
     return True
 

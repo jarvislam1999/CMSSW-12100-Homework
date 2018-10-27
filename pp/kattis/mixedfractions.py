@@ -23,9 +23,11 @@ def solve(numerator, denominator):
     c = denominator
 
     while ( b >= c):
-        a[0] +=1
+        a +=1
         b -= c
 
+    if b ==0:
+        c = 0
     # Replace 0, 0, 0 with the appropriate return values
     return a, b, c
 

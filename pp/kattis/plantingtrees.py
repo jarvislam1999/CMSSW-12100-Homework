@@ -35,10 +35,6 @@ def solve(times):
 
 
 
-	
-	return 0
-
-
 if __name__ == "__main__":
 	tokens = sys.stdin.read().strip().split()
 
