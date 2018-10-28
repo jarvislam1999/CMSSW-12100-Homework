@@ -18,7 +18,25 @@ def solve(l, lights):
     """
 
     # YOUR CODE HERE
+    second = 0
+    position = 1
+    color = 1
+    time = 0
+    for light in lights:
+        second += light[0] - position
+        time += light[color]
+        if (second <= time):
 
+            second = time
+        elif (second > time):
+            color = 2 if (color == 1) else 1
+            while (time < second):
+                time += light[color]
+                color = 2 if (color == 1) else 1
+            
+
+
+            second += light[1] 
     # Replace the 0 with your return value
     return 0
 
