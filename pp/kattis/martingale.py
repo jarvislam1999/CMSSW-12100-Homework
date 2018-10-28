@@ -23,7 +23,19 @@ import sys
 def solve(initial_money, initial_bet, cointosses):
     # Write your solution here, and don't forget to update
     # the return statement to return the correct value.
-    return 0
+    m_i = initial_money
+    b_i = initial_bet
+    i = 0
+    while (m_i > 0 and i < len(cointosses)):
+        if (cointosses[i] == 0):
+            m_i -= b_i
+            b_i = min(b_i * 2, m_i)
+        else:
+            m_i += b_i
+            b_i = initial_bet
+        i+=1
+
+    return m_i
 
 
 if __name__ == "__main__":

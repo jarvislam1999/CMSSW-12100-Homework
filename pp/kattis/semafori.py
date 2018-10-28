@@ -21,24 +21,20 @@ def solve(l, lights):
     second = 0
     position = 1
     color = 1
-    time = 0
+    '''
+    while (light < len(lights)):
+        second += lights[light][0] - position
+    '''
+
     for light in lights:
-        second += light[0] - position
-        time += light[color]
-        if (second <= time):
+        second += light[0] - position 
+        color = second % (light[1] + light[2])
+        if (color < light[1]):
+            second += light[1] - color
+        position = light[0]
 
-            second = time
-        elif (second > time):
-            color = 2 if (color == 1) else 1
-            while (time < second):
-                time += light[color]
-                color = 2 if (color == 1) else 1
-            
-
-
-            second += light[1] 
+    return second + l - position
     # Replace the 0 with your return value
-    return 0
 
 
 if __name__ == "__main__":

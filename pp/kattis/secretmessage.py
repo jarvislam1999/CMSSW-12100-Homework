@@ -21,8 +21,7 @@ def solve(message):
     empty_list = []
     m = int((len(message) ** 0.5) // 1) + (1 if ((len(message) ** 0.5) % 1 != 0) else 0)
     message1 = message + "*" * (m ** 2 - len(message))
-    print(len(message))
-    print(len(message1))
+
     for i in range(m):
         for j in range(m - 1, -1, -1):
             if message1[4 * j + i] != "*":

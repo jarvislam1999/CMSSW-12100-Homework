@@ -15,6 +15,20 @@ import sys
 
 def solve(queens):    
     # YOUR CODE HERE
+    row = {}
+    column = {}
+    for queen in queens:
+        if (queen[0] in row):
+            return False
+        if (queen[1] in column):
+            return False
+        row[queen[0]] = True
+        column[queen[1]] = True
+    for i in range(len(queens)):
+        for j in range(i + 1, len(queens)):
+            if(abs(queens[i][0] - queens[j][0]) == abs(queens[i][1] - queens[j][1])):
+                return False
+                
 
     # Replace True with the correct return value
     return True
