@@ -14,37 +14,47 @@ import sys
 # should return True if the queens are placed legally.
 
 def solve(queens):    
-    # YOUR CODE HERE
-    row = {}
-    column = {}
-    for queen in queens:
-        if (queen[0] in row):
-            return False
-        if (queen[1] in column):
-            return False
-        row[queen[0]] = True
-        column[queen[1]] = True
-    for i in range(len(queens)):
-        for j in range(i + 1, len(queens)):
-            if(abs(queens[i][0] - queens[j][0]) == abs(queens[i][1] - queens[j][1])):
-                return False
-                
+	# YOUR CODE HERE
+	row = set()
+	column = set()
+	ldiag = set()
+	rdiag = set()
+	for queen in queens:
+		r, c = queen
+		if (r in row):
+			return False
+		if (c in column):
+			return False
+		if (r - c in ldiag):
+			return False
+		if (r + c in rdiag):
+			return False
+		row.add(r)
+		column.add(c)
+		ldiag.add(r - c)
+		rdiag.add(r + c)
+	'''
+	for i in range(len(queens)):
+		for j in range(i + 1, len(queens)):
+			if(abs(queens[i][0] - queens[j][0]) == abs(queens[i][1] - queens[j][1])):
+				return False
+	'''
 
-    # Replace True with the correct return value
-    return True
+	# Replace True with the correct return value
+	return True
 
 if __name__ == "__main__":
 
-    tokens = sys.stdin.read().split()
+	tokens = sys.stdin.read().split()
 
-    n = int(tokens.pop(0))
+	n = int(tokens.pop(0))
 
-    queens = []
-    for i in range(n):
-        queens.append( (int(tokens.pop(0)), int(tokens.pop(0))) )
+	queens = []
+	for i in range(n):
+		queens.append( (int(tokens.pop(0)), int(tokens.pop(0))) )
 
-    if solve(queens):
-        print("CORRECT")
-    else:
-        print("INCORRECT")
+	if solve(queens):
+		print("CORRECT")
+	else:
+		print("INCORRECT")
 
