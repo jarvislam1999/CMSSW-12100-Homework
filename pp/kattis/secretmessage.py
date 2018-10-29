@@ -24,8 +24,8 @@ def solve(message):
 
     for i in range(m):
         for j in range(m - 1, -1, -1):
-            if message1[4 * j + i] != "*":
-                empty_list.append(message1[4*j + i])
+            if message1[m * j + i] != "*":
+                empty_list.append(message1[m*j + i])
     # Replace "" with your return value
     return "".join(empty_list)
 
