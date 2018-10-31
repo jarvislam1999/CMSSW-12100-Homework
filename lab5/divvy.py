@@ -202,7 +202,7 @@ class DivvyTrip(object):
         Returns: String representation of the trip
         """
         s = "<DivvyTrip {}: Station {} to Station {}>"
-        s= s.format(self.trip_id, self.from_station.stationID, self.to_station.stationID)
+        s= s.format(self.trip_id, self.from_station.station_id, self.to_station.station_id)
         return s
 
 
