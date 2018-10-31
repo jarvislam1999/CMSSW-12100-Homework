@@ -1,0 +1,38 @@
+{ 
+  "seed": 1468604453,
+  "precincts": [
+      {
+       "name": "Downtown (1)",
+       "hours_open": 1, 
+       "num_voters": 5, 
+       "num_booths": 1,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.11
+                             }
+      },
+      {
+       "name": "Downtown (2)",
+       "hours_open": 1, 
+       "num_voters": 5, 
+       "num_booths": 1,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.11
+                             }
+      },
+      {
+       "name": "Downtown (3)",
+       "hours_open": 1, 
+       "num_voters": 5, 
+       "num_booths": 1,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.11
+                             }
+      }
+  ]
+}

@@ -1,0 +1,28 @@
+{ 
+  "seed": 1438018944,
+  "precincts": [
+      {
+       "name": "Little Rodentia (1 booth)",
+       "hours_open": 1, 
+       "num_voters": 10, 
+       "num_booths": 1,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.16666666666666666
+                             }
+      },
+      {
+       "name": "Little Rodentia (2 booths)",
+       "hours_open": 1, 
+       "num_voters": 10, 
+       "num_booths": 2,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.16666666666666666
+                             }
+      }
+  ]
+}
+

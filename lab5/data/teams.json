@@ -1,0 +1,1895 @@
+[
+  {
+    "students": [
+      "jmaddux"
+    ], 
+    "team_id": "jmaddux", 
+    "submissions": [
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 23:49:40.613909+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-08 23:26:34.443448+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 21:21:51.723888+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-20 01:17:52.458889+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 00:59:30.208749+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-26 01:23:04.548629+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "swalker", 
+      "dkearns"
+    ], 
+    "team_id": "swalker-dkearns", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 21:11:43.139826+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "chenry", 
+      "wglasser"
+    ], 
+    "team_id": "chenry-wglasser", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 00:41:24.051805+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 01:02:25.099818+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:58:21.600236+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "cprice", 
+      "jwunderlin"
+    ], 
+    "team_id": "cprice-jwunderlin", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 01:22:02.178461+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-17 23:35:02.790179+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 07:31:16.312722+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "mwallace", 
+      "jcoffman"
+    ], 
+    "team_id": "mwallace-jcoffman", 
+    "submissions": [
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 02:02:05.925683+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 22:47:57.402715+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 00:53:11.204100+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 01:53:29.506360+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 02:06:15.082826+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-24 23:46:21.596833+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "cgray", 
+      "kmcnair"
+    ], 
+    "team_id": "cgray-kmcnair", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-17 22:48:17.341564+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 23:49:16.454415+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 21:57:04.239398+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-23 21:30:06.184067+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-11 23:46:52.704313+00:00", 
+        "extensions_used": 3
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-24 19:06:09.347089+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "msmith", 
+      "bpettner"
+    ], 
+    "team_id": "msmith-bpettner", 
+    "submissions": [
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:58:03.629362+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-13 01:25:45.525637+00:00", 
+        "extensions_used": 3
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-21 20:03:57.461073+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "iallen", 
+      "dmendoza"
+    ], 
+    "team_id": "iallen-dmendoza", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-21 01:53:04.070726+00:00", 
+        "extensions_used": 3
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 01:57:53.398697+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 01:56:37.109459+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 02:12:19.576939+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 01:46:16.846639+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-26 02:00:21.413739+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "mcovington", 
+      "bpettner"
+    ], 
+    "team_id": "mcovington-bpettner", 
+    "submissions": [
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 01:40:45.185124+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 02:03:04.337465+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 21:56:27.057860+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "bking", 
+      "cnixon"
+    ], 
+    "team_id": "bking-cnixon", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 00:00:12.740737+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:49:07.793531+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 01:27:37.687198+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "bgrinage", 
+      "lwhite"
+    ], 
+    "team_id": "bgrinage-lwhite", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 00:43:49.787566+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:38:38.964767+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-13 00:38:24.895133+00:00", 
+        "extensions_used": 4
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 23:33:54.251397+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-09 17:13:43.855600+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 01:12:28.161296+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "mhaney"
+    ], 
+    "team_id": "mhaney", 
+    "submissions": [
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 01:59:32.566561+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-11 00:40:07.899990+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-09 23:21:10.530005+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 02:08:55.349845+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 01:58:06.663180+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-24 21:06:30.441953+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "eswift", 
+      "mmurray"
+    ], 
+    "team_id": "eswift-mmurray", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 23:27:02.291779+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 00:34:11.018601+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:43:02.050356+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 00:12:38.529982+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 23:07:05.090863+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-27 00:58:14.963010+00:00", 
+        "extensions_used": 2
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "hdepalma", 
+      "nterhune"
+    ], 
+    "team_id": "hdepalma-nterhune", 
+    "submissions": [
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 02:04:06.904455+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 00:04:41.444472+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-28 01:43:07.044426+00:00", 
+        "extensions_used": 3
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "ibrown"
+    ], 
+    "team_id": "ibrown", 
+    "submissions": [
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 01:57:52.824232+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-11 00:39:48.659515+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-21 01:57:58.860512+00:00", 
+        "extensions_used": 3
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:46:07.346125+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 01:57:33.517280+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 01:01:20.011359+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "gbaker", 
+      "bmaguire"
+    ], 
+    "team_id": "gbaker-bmaguire", 
+    "submissions": []
+  }, 
+  {
+    "students": [
+      "cramos", 
+      "jmullins"
+    ], 
+    "team_id": "cramos-jmullins", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 19:08:01.523802+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-12 00:05:30.586093+00:00", 
+        "extensions_used": 3
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:24:09.273511+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 00:35:09.435285+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-09 08:05:01.144972+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 23:44:10.871906+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "vlawrence", 
+      "plauridsen"
+    ], 
+    "team_id": "vlawrence-plauridsen", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 20:45:13.947602+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 01:56:02.788613+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 23:34:22.924912+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 00:46:17.139051+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 01:19:38.231825+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-24 22:33:52.678755+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "dlandis", 
+      "jcarr"
+    ], 
+    "team_id": "dlandis-jcarr", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-11 01:13:28.329181+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-23 22:50:45.889094+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 17:27:44.212507+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-17 01:47:36.235040+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-09 15:34:36.279345+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-26 16:12:01.505832+00:00", 
+        "extensions_used": 2
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "rshelley", 
+      "jgates"
+    ], 
+    "team_id": "rshelley-jgates", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 00:57:20.835579+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:25:57.614029+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 23:08:19.796670+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 01:54:41.397681+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 01:46:21.982678+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 17:13:46.575149+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "jsewell", 
+      "rlandingham"
+    ], 
+    "team_id": "jsewell-rlandingham", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 01:35:35.687766+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 01:31:27.071033+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 01:49:37.384201+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 04:16:34.652966+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:52:03.301144+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 01:53:23.971154+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "wcollins", 
+      "mmckay"
+    ], 
+    "team_id": "wcollins-mmckay", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 23:10:24.637979+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 02:07:22.678315+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 21:11:14.190088+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-26 01:50:31.936958+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 02:04:22.152913+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 01:52:01.482232+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "jdunlap", 
+      "jwunderlin"
+    ], 
+    "team_id": "jdunlap-jwunderlin", 
+    "submissions": [
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 21:26:37.080629+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 22:46:41.209141+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 01:09:42.267110+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "ctriplett"
+    ], 
+    "team_id": "ctriplett", 
+    "submissions": [
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 01:58:35.660135+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 01:59:42.114208+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-09 18:08:00.743987+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 01:27:29.185407+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-26 01:53:45.143224+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-26 01:57:27.887177+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "jzendejas"
+    ], 
+    "team_id": "jzendejas", 
+    "submissions": [
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 01:58:23.911264+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 02:01:50.381130+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 02:02:09.952475+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "ghood"
+    ], 
+    "team_id": "ghood", 
+    "submissions": [
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-14 22:01:10.110037+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-11 00:44:56.955982+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "bwilliams", 
+      "cnixon"
+    ], 
+    "team_id": "bwilliams-cnixon", 
+    "submissions": [
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 01:42:22.906882+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 01:33:54.963851+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-26 23:57:22.799108+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "mlin", 
+      "rodaniel"
+    ], 
+    "team_id": "mlin-rodaniel", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 23:44:14.711132+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 03:36:55.114896+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 01:49:59.555879+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 01:24:38.863089+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-11 01:47:07.966081+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-28 20:29:25.229124+00:00", 
+        "extensions_used": 2
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "nfraser", 
+      "gbaker"
+    ], 
+    "team_id": "nfraser-gbaker", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 18:48:44.467547+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 01:33:36.736692+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 00:14:37.963412+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-12 01:57:47.400220+00:00", 
+        "extensions_used": 3
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 22:08:59.682086+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 01:10:14.871422+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "cmcclellan", 
+      "hdepalma"
+    ], 
+    "team_id": "cmcclellan-hdepalma", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 01:19:43.434417+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-20 00:53:08.638313+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:55:21.448351+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "favila", 
+      "wschnelder"
+    ], 
+    "team_id": "favila-wschnelder", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-08 14:32:11.056319+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-09 23:16:57.580333+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-23 20:33:37.996978+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 00:00:26.196476+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 01:55:28.263009+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-22 02:26:53.704588+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "amarkow"
+    ], 
+    "team_id": "amarkow", 
+    "submissions": [
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 01:59:30.088008+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 03:54:44.177407+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 01:50:10.739528+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 22:44:28.768480+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 01:08:20.095640+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 22:21:09.867743+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "ccrum", 
+      "bwilliams"
+    ], 
+    "team_id": "ccrum-bwilliams", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 23:00:47.799715+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 01:15:28.322876+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:53:31.025865+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "ebarnes", 
+      "cconnally"
+    ], 
+    "team_id": "ebarnes-cconnally", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-08 21:42:36.233737+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-17 02:21:24.434346+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 00:05:30.855666+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-11 23:51:30.960802+00:00", 
+        "extensions_used": 3
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:27:50.859483+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 01:51:17.571174+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "pjohnson", 
+      "hgutierez"
+    ], 
+    "team_id": "pjohnson-hgutierez", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 00:14:31.747194+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 00:41:51.174460+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 03:36:00.674141+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 01:53:55.328364+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:43:20.484210+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-26 01:50:22.348961+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "mduran", 
+      "adugan"
+    ], 
+    "team_id": "mduran-adugan", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 22:51:39.168515+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-11 01:54:45.457114+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:59:53.950578+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-12 01:38:49.729563+00:00", 
+        "extensions_used": 3
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 01:13:45.312332+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 00:18:22.100226+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "jparker"
+    ], 
+    "team_id": "jparker", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-11 00:17:07.076406+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "cprice", 
+      "wglasser"
+    ], 
+    "team_id": "cprice-wglasser", 
+    "submissions": [
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 01:31:47.017202+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 01:59:26.086460+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-27 01:47:10.814137+00:00", 
+        "extensions_used": 2
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "mlawson"
+    ], 
+    "team_id": "mlawson", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-08 09:50:34.006018+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-11 02:00:39.231305+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 01:10:34.711971+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 00:52:43.429634+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-08 18:49:28.851518+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 19:17:32.553114+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "lharrington", 
+      "cwalker"
+    ], 
+    "team_id": "lharrington-cwalker", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-20 00:54:06.811820+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 00:46:20.697324+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 00:27:40.697130+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 23:17:25.944370+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 00:41:03.380867+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 01:52:50.134458+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "pbrunson"
+    ], 
+    "team_id": "pbrunson", 
+    "submissions": [
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-11 22:11:35.630685+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 01:31:40.081029+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 01:58:46.322632+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 00:57:48.906241+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 16:21:39.255741+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-21 03:40:21.618318+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "javey", 
+      "jmason"
+    ], 
+    "team_id": "javey-jmason", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 19:49:47.617682+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-16 08:56:42.524612+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-23 22:09:52.207833+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-12 01:10:16.637428+00:00", 
+        "extensions_used": 3
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-06 20:50:14.458763+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-24 21:46:28.971494+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "jzendejas", 
+      "mcovington"
+    ], 
+    "team_id": "jzendejas-mcovington", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-20 01:50:06.853145+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 02:09:11.243904+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 23:50:21.794869+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "dkearns", 
+      "lkenney"
+    ], 
+    "team_id": "dkearns-lkenney", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-17 21:16:33.914192+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 14:51:46.812840+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-12 01:59:35.866942+00:00", 
+        "extensions_used": 3
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-07 21:21:44.636596+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-23 09:53:30.701731+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "cmcclellan", 
+      "wchapman"
+    ], 
+    "team_id": "cmcclellan-wchapman", 
+    "submissions": [
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 01:57:37.487788+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-11 00:54:33.308645+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-26 01:53:58.709306+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "jdunlap", 
+      "ghood"
+    ], 
+    "team_id": "jdunlap-ghood", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 00:27:35.886530+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 02:00:11.428773+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "ecole", 
+      "dtockey"
+    ], 
+    "team_id": "ecole-dtockey", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 08:04:44.326866+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 01:31:05.545786+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-09 23:27:10.621285+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:53:27.830163+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 23:32:41.604429+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 01:38:50.916087+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "sford", 
+      "jknight"
+    ], 
+    "team_id": "sford-jknight", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 01:50:47.291969+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 22:47:22.949189+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 01:59:21.720740+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:55:39.705478+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 01:34:48.612403+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-26 21:50:03.190371+00:00", 
+        "extensions_used": 2
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "mkull", 
+      "jlavadera"
+    ], 
+    "team_id": "mkull-jlavadera", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 19:26:49.754655+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 01:04:50.809366+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:43:31.293024+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 00:36:58.424138+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-08 07:00:25.097572+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-24 22:08:49.647655+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "amayfield", 
+      "bthrower"
+    ], 
+    "team_id": "amayfield-bthrower", 
+    "submissions": [
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:57:26.554162+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 00:09:02.615950+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 00:15:50.146093+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 02:07:26.713097+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 00:34:44.571121+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-28 01:15:07.276205+00:00", 
+        "extensions_used": 3
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "mmilner", 
+      "gmacomber"
+    ], 
+    "team_id": "mmilner-gmacomber", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 21:30:21.961894+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:52:45.835307+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 00:22:52.725739+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 01:42:07.502953+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-19 01:35:58.664638+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-26 22:38:21.186680+00:00", 
+        "extensions_used": 2
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "ebirchler", 
+      "jzook"
+    ], 
+    "team_id": "ebirchler-jzook", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 23:58:08.054708+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 21:50:48.829715+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-23 23:02:06.506740+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 00:28:13.047710+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 01:20:44.040807+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-27 01:58:45.342703+00:00", 
+        "extensions_used": 2
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "jdunlap", 
+      "whummingbird"
+    ], 
+    "team_id": "jdunlap-whummingbird", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 23:53:11.474837+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "lwood", 
+      "jrork"
+    ], 
+    "team_id": "lwood-jrork", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 19:44:25.722356+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-09 21:59:01.628800+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 00:52:08.624024+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-12 21:56:28.753763+00:00", 
+        "extensions_used": 4
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-17 22:23:48.821071+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-24 23:42:27.902221+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "ilewis"
+    ], 
+    "team_id": "ilewis", 
+    "submissions": [
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 15:07:24.567195+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "mkennard", 
+      "hkeller"
+    ], 
+    "team_id": "mkennard-hkeller", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-17 23:53:30.473057+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-09 22:16:56.486849+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:27:08.482051+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 00:22:15.750381+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 23:38:12.215666+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-28 01:40:12.855437+00:00", 
+        "extensions_used": 3
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "wchapman", 
+      "nterhune"
+    ], 
+    "team_id": "wchapman-nterhune", 
+    "submissions": [
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-10 00:09:28.219611+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-24 01:51:16.480434+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-18 22:55:13.047916+00:00", 
+        "extensions_used": 1
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "ghood", 
+      "ilewis"
+    ], 
+    "team_id": "ghood-ilewis", 
+    "submissions": [
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-14 01:06:47.437354+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-03-02 03:25:48.329929+00:00", 
+        "extensions_used": 4
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "bking", 
+      "chenry"
+    ], 
+    "team_id": "bking-chenry", 
+    "submissions": [
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-10 20:39:36.425868+00:00", 
+        "extensions_used": 2
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-09 23:16:54.680993+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-25 01:15:03.302616+00:00", 
+        "extensions_used": 0
+      }
+    ]
+  }, 
+  {
+    "students": [
+      "muhrig", 
+      "kbolton"
+    ], 
+    "team_id": "muhrig-kbolton", 
+    "submissions": [
+      {
+        "assignment_id": "pa2", 
+        "submitted_at": "2017-01-17 23:21:36.693126+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa3", 
+        "submitted_at": "2017-01-25 01:03:13.439288+00:00", 
+        "extensions_used": 1
+      }, 
+      {
+        "assignment_id": "pa6", 
+        "submitted_at": "2017-03-09 01:48:51.579070+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa1", 
+        "submitted_at": "2017-01-09 23:38:42.165678+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa4", 
+        "submitted_at": "2017-02-10 00:11:31.182639+00:00", 
+        "extensions_used": 0
+      }, 
+      {
+        "assignment_id": "pa5", 
+        "submitted_at": "2017-02-28 01:34:24.270740+00:00", 
+        "extensions_used": 3
+      }
+    ]
+  }
+]
