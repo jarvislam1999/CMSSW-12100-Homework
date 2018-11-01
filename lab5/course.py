@@ -51,11 +51,19 @@ class Student(object):
 ###                                ###
 
 
+
+
 ###         YOUR CODE HERE               ###
 ###                                      ###
 ### Implement your Submission class here ###
 ###                                      ###
 
+class Submission(object):
+    def __init__ (assignment_id, submitted_at, extensions_used):
+        self.assignment_id = assignment_id
+        self.submitted_at = submitted_at
+        self. extensions_used = extensions_used
+        
 
 
 def time_str(t):
