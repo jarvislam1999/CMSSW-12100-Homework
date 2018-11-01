@@ -1,0 +1,16 @@
+{ 
+  "seed": 1468604453,
+  "precincts": [
+      {
+       "name": "Tundra Town",
+       "hours_open": 1, 
+       "num_voters": 5, 
+       "num_booths": 1,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.04
+                             }
+      }
+  ]
+}
