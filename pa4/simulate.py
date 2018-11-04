@@ -21,7 +21,7 @@ class Voter(object):
         self.start_time = None
         self.departure_time = None
         self.voting_duration = voting_duration
-        self.t = 0
+
 
 class VoterGenerator(object):
     def __init__(self, arrival_rate, voting_duration_rate, seed):
@@ -29,6 +29,7 @@ class VoterGenerator(object):
         self.voting_duration_rate = voting_duration_rate
         self.seed = seed
         random.seed(self.seed)
+        self.t = 0
     def next(self):
         arrival_time_, voting_duration_ = util.\
         gen_poisson_voter_parameters(self.arrival_rate, self.voting_duration_rate)
@@ -36,43 +37,102 @@ class VoterGenerator(object):
         self.t += arrival_time_
         return voter
 
-
         
 class Precinct(object):
-    def __init__(self, hours_open, num_voters, num_booths, \
-        arrival_rate, voting_duration_rate):
+    def __init__(self, name, hours_open, num_voters, num_booths, \
+        arrival_rate, voting_duration_rate, seed):
         
+        self.name = name
         self.num_booths = num_booths
-        self.hours_open = hours_open
+        self.hours_open = hours_open * 60
         self.num_voters = num_voters
-        self.arrival_rate = arrival_rate
-        self.voting_duration_rate = voting_duration_rate
+        self.voter_generator = VoterGenerator(arrival_rate, \
+            voting_duration_rate, seed)
 
+    def __voter_queue_create(self):
+        return queue.PriorityQueue(self.num_booths)
+
+    def __booth_is_full(self, queue_):
+        return queue_.full()
+
+    def __voter_queue_get(self, queue_):
+        return queue_.get(block = False)
+
+    def __voter_queue_put(self, queue_, item):
+        return queue_.put(item, block = False)
+    
     def simulate(self):
+        voter_queue = self.__voter_queue_create()
+        num_voter = 0
+        voter_list = []
+        while (num_voter < self.num_voters):
+            voter = self.voter_generator.next()
+            if(voter.arrival_time >= self.hours_open):
+                break
+            if (self.__booth_is_full(voter_queue)):
+                voter1 = self.__voter_queue_get(voter_queue)
+                if (voter.arrival_time >= voter1[0]):
+                    voter.start_time = voter.arrival_time
+                else: 
+                    voter.start_time = voter1[0]
 
-
-
+            else:
+                voter.start_time = voter.arrival_time
+            voter.departure_time = voter.start_time +\
+            voter.voting_duration
+            self.__voter_queue_put(voter_queue, (voter.departure_time,\
+                    voter))
+            voter_list.append(voter)
+            num_voter += 1
+        return voter_list
 
 
 def simulate_election_day(precincts, seed=0):
     # YOUR CODE HERE.
+    precinct_dict = {}
+    for p in precincts:
+        precinct = Precinct(p["name"], p["hours_open"], p["num_voters"],\
+            p["num_booths"], p["voter_distribution"]["arrival_rate"],\
+            p["voter_distribution"]["voting_duration_rate"], seed)
+        precinct_dict[precinct.name] = precinct.simulate()
+
     # REPLACE {} with a dictionary mapping precint names
     # to a list of voters for that precinct
-    return {}
+    return precinct_dict
 
 
 def find_avg_wait_time(precinct, num_booths, ntrials, initial_seed=0):
     # YOUR CODE HERE.
+    wt_list = []
+    p = precinct
+    for num in range(0,ntrials):
+        precinct_ = Precinct(p["name"], p["hours_open"], p["num_voters"],\
+            num_booths, p["voter_distribution"]["arrival_rate"],\
+            p["voter_distribution"]["voting_duration_rate"], initial_seed)
+        pvoters = precinct_.simulate()
+        wt_list.append(sum([v.start_time - v.arrival_time\
+         for v in pvoters]) / len(pvoters))
+        initial_seed += 1
+    wt_list.sort()
+
     # REPLACE 0.0 with the waiting time this function computes
-    return 0.0
+    return wt_list[ntrials//2]
 
 
 def find_number_of_booths(precinct, target_wait_time, max_num_booths, ntrials, seed=0):
     # YOUR CODE HERE
+    num_booths = 0
+    avg_wt = target_wait_time + 100
+    while (num_booths < max_num_booths and avg_wt >= target_wait_time):
+        num_booths += 1
+        avg_wt = find_avg_wait_time(precinct, num_booths, ntrials, seed)
+
     # Replace (0,0) with a tuple containing the optimal number of booths
     # and the average waiting time for that number of booths
-
-    return (0, 0)
+    if (avg_wt >= target_wait_time):
+        return (0, None)
+    else:
+        return (num_booths, avg_wt)
 
 
 # DO NOT REMOVE THESE LINES OF CODE
