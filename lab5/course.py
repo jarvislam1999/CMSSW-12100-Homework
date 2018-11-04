@@ -241,7 +241,7 @@ if __name__ == "__main__":
     # up dropping the class
     teams_with_dropped = 0
     for t in teams.values():
-        if t.includes_dropped:
+        if t.includes_dropped():
             teams_with_dropped += 1
     print("The number of teams with dropped students is {}".format(teams_with_dropped))
 
@@ -252,7 +252,7 @@ if __name__ == "__main__":
     deltas = []
     for t in teams.values():
         for s in t.submissions:
-            d = s.deadline_delta
+            d = s.deadline_delta()
             if d < 0:
                 deltas.append(-d)
 
