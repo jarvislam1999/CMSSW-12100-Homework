@@ -15,6 +15,43 @@ import util
 
 ### YOUR Voter, VoterGenerator, and Precinct classes GO HERE.
 
+class Voter(object):
+    def __init__(self, arrival_time, voting_duration):
+        self.arrival_time = arrival_time
+        self.start_time = None
+        self.departure_time = None
+        self.voting_duration = voting_duration
+        self.t = 0
+
+class VoterGenerator(object):
+    def __init__(self, arrival_rate, voting_duration_rate, seed):
+        self.arrival_rate = arrival_rate
+        self.voting_duration_rate = voting_duration_rate
+        self.seed = seed
+        random.seed(self.seed)
+    def next(self):
+        arrival_time_, voting_duration_ = util.\
+        gen_poisson_voter_parameters(self.arrival_rate, self.voting_duration_rate)
+        voter = Voter(self.t + arrival_time_, voting_duration_)
+        self.t += arrival_time_
+        return voter
+
+
+        
+class Precinct(object):
+    def __init__(self, hours_open, num_voters, num_booths, \
+        arrival_rate, voting_duration_rate):
+        
+        self.num_booths = num_booths
+        self.hours_open = hours_open
+        self.num_voters = num_voters
+        self.arrival_rate = arrival_rate
+        self.voting_duration_rate = voting_duration_rate
+
+    def simulate(self):
+
+
+
 
 
 def simulate_election_day(precincts, seed=0):
