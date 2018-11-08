@@ -17,6 +17,13 @@ import util
 
 class Voter(object):
     def __init__(self, arrival_time, voting_duration):
+        '''
+        Initiating 4 attributes:
+        arrival_time: voter's arrival time
+        start_time: when they get assigned to a booth
+        departure_time: when they leave the booth
+        voting_duration: how long it takes them to vote in the booth
+        '''
         self.arrival_time = arrival_time
         self.start_time = None
         self.departure_time = None
@@ -25,15 +32,36 @@ class Voter(object):
 
 class VoterGenerator(object):
     def __init__(self, arrival_rate, voting_duration_rate, seed):
+        '''
+        Initiating four attributes:
+        arrival_rate: rate at which voters arrive
+        voting_duration_rate: rate at which voters spend voting
+        seed: random seed for generator
+
+        These three act as parameter for the Poisson distribution
+        from which we will derive our next arrival time
+        t: time to keep track of the current voter arrival time
+        '''
         self.arrival_rate = arrival_rate
         self.voting_duration_rate = voting_duration_rate
         self.seed = seed
         random.seed(self.seed)
         self.t = 0
+
     def next(self):
+        '''
+        Generate the next voter to arrive based on the Poisson 
+        distribution
+
+        Output: a Voter object
+        '''
+        # Get the next arrival time and voter duration from the Poisson
+        # distribution
         arrival_time_, voting_duration_ = util.\
         gen_poisson_voter_parameters(self.arrival_rate, self.voting_duration_rate)
+        # Create a Voter object with this updated information
         voter = Voter(self.t + arrival_time_, voting_duration_)
+        # Update current time to match with the this voter arrival time
         self.t += arrival_time_
         return voter
 
@@ -41,7 +69,9 @@ class VoterGenerator(object):
 class Precinct(object):
     def __init__(self, name, hours_open, num_voters, num_booths, \
         arrival_rate, voting_duration_rate, seed):
-        
+        '''
+
+        '''
         self.name = name
         self.num_booths = num_booths
         self.hours_open = hours_open * 60
