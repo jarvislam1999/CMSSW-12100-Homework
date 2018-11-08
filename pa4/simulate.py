@@ -70,7 +70,13 @@ class Precinct(object):
     def __init__(self, name, hours_open, num_voters, num_booths, \
         arrival_rate, voting_duration_rate, seed):
         '''
-
+        Initiating five attributes:
+        name: Name of the precinct
+        hours_open: The number of MINUTES it's open
+        num_voters: The maximum of number of voters who can 
+        visit the precinct
+        num_booth: The number of booths the precinct has
+        voter_generator: A VoterGenerator object for the precinct
         '''
         self.name = name
         self.num_booths = num_booths
@@ -80,46 +86,104 @@ class Precinct(object):
             voting_duration_rate, seed)
 
     def __voter_queue_create(self):
+        '''
+        Create a PriorityQueue, which will be the voting booth
+
+        Output: An empty priority queue
+        '''
         return queue.PriorityQueue(self.num_booths)
 
     def __booth_is_full(self, queue_):
+        '''
+        Check if the queue/ booth is full
+        
+        Input: The queue/ booth
+        Output: True if the booth is full, False otherwise
+        '''
         return queue_.full()
 
     def __voter_queue_get(self, queue_):
+        '''
+        Remove the lowest priority item from the list and 
+        return that item
+        
+        Input: The queue/booth
+        Output: A tuple containing a Voter object and its 
+        departure time
+        '''
         return queue_.get(block = False)
 
     def __voter_queue_put(self, queue_, item):
+        '''
+        Insert an item into the queue
+
+        Input: 
+        queue_: The queue/ booth
+        item: The item to insert in the list
+
+        Output: Empty, but the queue should be updated
+        '''
         return queue_.put(item, block = False)
     
     def simulate(self):
+        '''
+        Simulate a voting session at the precinct
+
+        Output: A list of Voter objects/ the people who voted
+        '''
+        # Create an empty queue
         voter_queue = self.__voter_queue_create()
+        # Initiate variable to keep count of voters who arrive
         num_voter = 0
-        voter_list = []
+        voter_list = [] # Initiate output list
+        # Begin simulation
         while (num_voter < self.num_voters):
-            voter = self.voter_generator.next()
+            voter = self.voter_generator.next() # Generate the next voter
+            # If the voter arrive after closing time, end simulation
             if(voter.arrival_time >= self.hours_open):
                 break
+            # If the booth is full, remove proper voter from queue, 
+            # save it to voter 1
             if (self.__booth_is_full(voter_queue)):
                 voter1 = self.__voter_queue_get(voter_queue)
+                # Set start_time of new voter to either their arrival or
+                # the old one's departure, whatever comes later
                 if (voter.arrival_time >= voter1[0]):
                     voter.start_time = voter.arrival_time
                 else: 
                     voter.start_time = voter1[0]
-
             else:
+                # If booth if not full just set start_time to arrival time
                 voter.start_time = voter.arrival_time
+            # Calculate departure time and insert new voter into the queue
             voter.departure_time = voter.start_time +\
             voter.voting_duration
             self.__voter_queue_put(voter_queue, (voter.departure_time,\
                     voter))
+            # Get the voter who will surely finish voting into output list
             voter_list.append(voter)
+            # Append number of voters
             num_voter += 1
+
         return voter_list
 
 
 def simulate_election_day(precincts, seed=0):
+    '''
+    Simulate the election day
+
+    Input: 
+    precincts: dictionary of precinct information
+    seed: random seed
+
+    Output: dictionary matching precinct name with list of voters
+    who voted for that precinct
+    '''
     # YOUR CODE HERE.
+    # Initializing output dict
     precinct_dict = {}
+    # Get data form the input dictionary and simulate the precincts
+    # Store the result into output dictionary
     for p in precincts:
         precinct = Precinct(p["name"], p["hours_open"], p["num_voters"],\
             p["num_booths"], p["voter_distribution"]["arrival_rate"],\
@@ -132,9 +196,22 @@ def simulate_election_day(precincts, seed=0):
 
 
 def find_avg_wait_time(precinct, num_booths, ntrials, initial_seed=0):
+    '''
+    Find average wait time of a voter when arriving at a precinct
+    Input:
+    precinct: a dictionary containing info for the precinct
+    num_booths: alternative maximum number of booths
+    ntrials: number of trials
+    initial_seed: initial seed
+
+    Output: Float representing average waiting time
+    '''
+
     # YOUR CODE HERE.
+    # Initializing output list
     wt_list = []
-    p = precinct
+    p = precinct # Just to reduce length of code
+    # Run through trail and record waiting time
     for num in range(0,ntrials):
         precinct_ = Precinct(p["name"], p["hours_open"], p["num_voters"],\
             num_booths, p["voter_distribution"]["arrival_rate"],\
@@ -150,9 +227,22 @@ def find_avg_wait_time(precinct, num_booths, ntrials, initial_seed=0):
 
 
 def find_number_of_booths(precinct, target_wait_time, max_num_booths, ntrials, seed=0):
+    '''
+    Find the smallest number of booth where the average wait time will drop below a 
+    certain threshold
+
+    Input: 
+    precinct: dictionary containing precinct info
+    target_wait_time: maximum wait time
+    max_num_booth: maximum number of booths
+    ntrials: number of trials for average wait time calculation
+    seed: initial seed
+
+    Output: integer with number of booths and float with average wait time
+    '''
     # YOUR CODE HERE
-    num_booths = 0
-    avg_wt = target_wait_time + 100
+    num_booths = 0 # Initializing number of booth
+    avg_wt = target_wait_time + 100 # a
     while (num_booths < max_num_booths and avg_wt >= target_wait_time):
         num_booths += 1
         avg_wt = find_avg_wait_time(precinct, num_booths, ntrials, seed)
