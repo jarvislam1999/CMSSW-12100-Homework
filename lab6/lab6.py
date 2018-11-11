@@ -3,7 +3,7 @@ import sys
 
 # import linear regression and apply beta from PA #5.
 sys.path.append("../pa5")
-from model import linear_regression
+from util import linear_regression
 
 def read_file(filename):
     '''
