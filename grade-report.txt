@@ -1,0 +1,33 @@
+Grading report for Jarvis Lam (jarvislam1999)
+Generated on Sunday, November 11, at 04:46PM
+
+Assignments
+===========
+ PA1: 93.00
+ PA2: 92.00
+ PA3: 94.00
+ PA4: Not graded yet
+ PA5: Not graded yet
+ PA6: Not graded yet
+ PA7: Not graded yet
+
+Assignments Total (out of 60): 23.91
+
+Exams
+=====
+Midterm: 83.50
+  Final: Not graded yet
+
+Exams Total (out of 40): 16.70
+
+Estimated grade
+===============
+The assignments and exam(s) that have been graded so far
+comprise a total of 45.71 points. Of those 45.71 points,
+you have accrued 40.61 points
+
+If the course ended right now, your final score would be 88.84 (out of 100)
+
+And your grade would be: B+
+
+
