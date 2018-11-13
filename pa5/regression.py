@@ -18,7 +18,7 @@ class DataSet(object):
               file
 
         Initializing five public variables:
-        name: name od dataset
+        name: name of dataset
         predictor_vars: list of all predictor variables
         dependent_var: dependent variable
         labels: label of predictor variables and dependent variable
@@ -40,7 +40,6 @@ class DataSet(object):
             test_size = None, random_state = parameters["seed"])
 
 
-
 class Model(object):
     '''
     Class for representing a model.
@@ -53,7 +52,8 @@ class Model(object):
             dataset: an dataset instance
             pred_vars: a list of the indices for the columns used in
               the model.
-        Initializing five public attributes:
+        Initializing six public attributes:
+        dataset: dataset for the model
         pred_vars: subset of all predictors that will be used for the model
         dep_var: dependent variable
         beta: all the linear coefficients after fitting the data
@@ -62,7 +62,7 @@ class Model(object):
         '''
 
         # REPLACE pass WITH YOUR CODE
-        self.dataset = dataset # Must include since it's required in the str method
+        self.dataset = dataset # Must include since it's required for the str method
         self.pred_vars = pred_vars
         self.dep_var = dataset.dependent_var
         self.beta = util.linear_regression(dataset.data[0][:, pred_vars],\
@@ -70,6 +70,7 @@ class Model(object):
         self.R2 = self.calculate_R2(0)
         self.adj_R2 = self.R2 - (1 - self.R2)*\
         (len(self.pred_vars)/(len(dataset.data[0]) - len(self.pred_vars) - 1))
+
         
     def calculate_R2(self, test):
         '''
@@ -84,10 +85,12 @@ class Model(object):
         '''
         assert test == 0 or test == 1
         dataset_ = self.dataset.data[test] # Assign training or testing data
+        # Calculate R2 according to the fomula in the PA
         numerator = ((dataset_[:, self.dep_var] - util.apply_beta(self.beta, dataset_[:, self.pred_vars])\
             ) ** 2).sum()
         denominator = ((dataset_[:, self.dep_var] - dataset_[:, self.dep_var].mean()) ** 2).sum()
         return 1 - numerator/denominator
+
     
     def __str__(self):
         '''
@@ -96,12 +99,13 @@ class Model(object):
 
         # Replace this return statement with one that returns a more
         # helpful string representation
-        s = '{} '.format(self.beta[0])
-        for beta in range(1, len(self.beta)):
+        s = '{} '.format(self.beta[0]) # Initialize string
+        for beta in range(1, len(self.beta)): # Fill string with betas
             s += '+ {} * {} '.format(self.beta[beta], self.dataset.labels[self.pred_vars[beta - 1]])
-        return "CRIME_TOTALS ~ " + s + "\n R2: {}".format( self.R2)
+        return "{} ~ ".format(self.dataset.labels[self.dep_var])+ s + "\n R2: {}".format( self.R2)
 
     ### Additional methods here
+
 
     def __repr__(self):
         '''
@@ -153,13 +157,15 @@ def compute_best_pair(dataset):
     '''
 
     # Replace None with a model object
+    # Loop through nested for loops for the best R2 model, the key is defined
+    # in the function below
     return max([Model(dataset, [i,j]) for i in dataset.predictor_vars \
     for j in range(i+1, len(dataset.predictor_vars))], key = R2_value)
 
 
 def R2_value(model):
     '''
-    Return R-squared value of a Model object
+    Return R-squared value of a Model object to be used as key
 
     Input: 
     model: a Model object
@@ -180,27 +186,22 @@ def backward_selection(dataset):
         A list (of length P) of Model objects. The first element is the
         model where K=1, the second element is the model where K=2, and so on.
     '''
+    # create a modifiable copy of the predictors
     predictor_vars = dataset.predictor_vars[:]
+    # Initializing output list
     model_list =[Model(dataset, dataset.predictor_vars)]
-    
+    # Filling the list by decreasing values of K
     for K in range(len(dataset.predictor_vars) - 1, 0, -1):
+        # Create list of possible models for a particular K
         models = [Model(dataset, predictor_vars[0:i] + predictor_vars[i+1:len(predictor_vars)])\
          for i in range(0,len(predictor_vars))]
+        # Get the max R -squared model and insert it into output list
         model_list.insert(0, max(models, key = R2_value))
+        # Delete this ma model's predictor from the list of predictors
         del predictor_vars[models.index(max(models, key = R2_value))]
 
     # Replace [] with the list of models
     return model_list
-
-def adj_R2_value(model):
-    '''
-    Return adjusted R-squared value of a Model object
-
-    Input: 
-    model: a Model object
-    Output: Its adj_R2 attribute
-    '''
-    return model.adj_R2
 
 
 def choose_best_model(dataset):
@@ -217,7 +218,20 @@ def choose_best_model(dataset):
     '''
 
     # Replace None with a model object
+    # Return the model with the highest adj_R2 value, a.k.a with
+    # the best K, key is defined below
     return max(backward_selection(dataset), key = adj_R2_value)
+
+
+def adj_R2_value(model):
+    '''
+    Return adjusted R-squared value of a Model object to be used as key
+
+    Input: 
+    model: a Model object
+    Output: Its adj_R2 attribute
+    '''
+    return model.adj_R2
 
 
 def validate_model(dataset, model):
@@ -235,5 +249,7 @@ def validate_model(dataset, model):
     '''
 
     # Replace 0.0 with the correct R2 value
-    return model.calculate_R2(1)
+    # Using calculate_R2 function from the Model class, 
+    # pass in 1 for testing data
+    return model.calculate_R2(1) 
 
