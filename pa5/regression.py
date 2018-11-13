@@ -16,19 +16,28 @@ class DataSet(object):
         Inputs:
             dir_path: (string) path to the directory that contains the
               file
+
+        Initializing five public variables:
+        name: name od dataset
+        predictor_vars: list of all predictor variables
+        dependent_var: dependent variable
+        labels: label of predictor variables and dependent variable
+        data: a list with two elements, the first being the training data 
+        and the second being the testing data
         '''
 
         # REPLACE pass WITH YOUR CODE
+
+        # Read CVS and JSON files
         data = util.load_numpy_array(dir_path, "data.csv")
         parameters = util.load_json_file(dir_path, "parameters.json")
+        # Initializing attributes
         self.name = parameters["name"]
         self.predictor_vars = parameters["predictor_vars"]
         self.dependent_var = parameters["dependent_var"]
         self.labels = data[0]
         self.data = train_test_split(data[1], train_size = parameters["training_fraction"],\
             test_size = None, random_state = parameters["seed"])
-
-
 
 
 
@@ -44,20 +53,41 @@ class Model(object):
             dataset: an dataset instance
             pred_vars: a list of the indices for the columns used in
               the model.
+        Initializing five public attributes:
+        pred_vars: subset of all predictors that will be used for the model
+        dep_var: dependent variable
+        beta: all the linear coefficients after fitting the data
+        R2: R-squared for the training data
+        adj_R2: adjusted R-squared for the training data
         '''
 
         # REPLACE pass WITH YOUR CODE
+        self.dataset = dataset # Must include since it's required in the str method
         self.pred_vars = pred_vars
         self.dep_var = dataset.dependent_var
         self.beta = util.linear_regression(dataset.data[0][:, pred_vars],\
             dataset.data[0][:, self.dep_var])
-        self.R2 = self.calculate_R2(dataset.data[0])
+        self.R2 = self.calculate_R2(0)
         self.adj_R2 = self.R2 - (1 - self.R2)*\
         (len(self.pred_vars)/(len(dataset.data[0]) - len(self.pred_vars) - 1))
         
-    def calculate_R2(self, dataset_):
-        return 1 - (((dataset_[:, self.dep_var] - util.apply_beta(self.beta, dataset_[:, self.pred_vars])\
-            ) ** 2).sum()/((dataset_[:, self.dep_var] - dataset_[:, self.dep_var].mean()) ** 2).sum())
+    def calculate_R2(self, test):
+        '''
+        Calculate R2 for either the training or testing data
+
+        Input:
+        dataset_: an array or matrix containing the training or testing data
+        test: an integer indicating whether it's the train or test data
+        1 is for testing, 0 is for training
+        Output:
+        A float containing R-squared value
+        '''
+        assert test == 0 or test == 1
+        dataset_ = self.dataset.data[test] # Assign training or testing data
+        numerator = ((dataset_[:, self.dep_var] - util.apply_beta(self.beta, dataset_[:, self.pred_vars])\
+            ) ** 2).sum()
+        denominator = ((dataset_[:, self.dep_var] - dataset_[:, self.dep_var].mean()) ** 2).sum()
+        return 1 - numerator/denominator
     
     def __str__(self):
         '''
@@ -66,18 +96,18 @@ class Model(object):
 
         # Replace this return statement with one that returns a more
         # helpful string representation
-        return "CRIME_TOTALS ~ {} + {} * {}\n R2: {}".format(self.beta[0], self.dataset.labels[self.pred_vars[0]],\
-            self.beta[1], self.R2)
+        s = '{} '.format(self.beta[0])
+        for beta in range(1, len(self.beta)):
+            s += '+ {} * {} '.format(self.beta[beta], self.dataset.labels[self.pred_vars[beta - 1]])
+        return "CRIME_TOTALS ~ " + s + "\n R2: {}".format( self.R2)
 
     ### Additional methods here
 
     def __repr__(self):
         '''
-        Format model as a string
+        Method for printing object
         '''
 
-        # Replace this return statement with one that returns a more
-        # helpful string representation
         return "Dataset name: {}, Prediction variables: {}".format(self.dataset.name, self.pred_vars)
 
 
@@ -128,6 +158,13 @@ def compute_best_pair(dataset):
 
 
 def R2_value(model):
+    '''
+    Return R-squared value of a Model object
+
+    Input: 
+    model: a Model object
+    Output: Its R2 attribute
+    '''
     return model.R2
 
 
@@ -149,16 +186,22 @@ def backward_selection(dataset):
     for K in range(len(dataset.predictor_vars) - 1, 0, -1):
         models = [Model(dataset, predictor_vars[0:i] + predictor_vars[i+1:len(predictor_vars)])\
          for i in range(0,len(predictor_vars))]
-        #max_model = max(models, R2_value)
         model_list.insert(0, max(models, key = R2_value))
-        # print(max(models, key = R2_value))
         del predictor_vars[models.index(max(models, key = R2_value))]
 
     # Replace [] with the list of models
     return model_list
 
-def adj_r2_value(model):
+def adj_R2_value(model):
+    '''
+    Return adjusted R-squared value of a Model object
+
+    Input: 
+    model: a Model object
+    Output: Its adj_R2 attribute
+    '''
     return model.adj_R2
+
 
 def choose_best_model(dataset):
     '''
@@ -174,7 +217,7 @@ def choose_best_model(dataset):
     '''
 
     # Replace None with a model object
-    return max(backward_selection(dataset), key = adj_r2_value)
+    return max(backward_selection(dataset), key = adj_R2_value)
 
 
 def validate_model(dataset, model):
@@ -192,5 +235,5 @@ def validate_model(dataset, model):
     '''
 
     # Replace 0.0 with the correct R2 value
-    return model.calculate_R2(dataset.data[1])
+    return model.calculate_R2(1)
 
