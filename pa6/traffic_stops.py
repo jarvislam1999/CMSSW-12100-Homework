@@ -76,7 +76,7 @@ def read_and_process_searches(csv_file, fill_na_dict=None):
     Returns: (dataframe): a processed dataframe
     '''
 
-    if not fill_na_dict:
+    if fill_na_dict is None:
         # Handle fill_na_dict parameter not supplied
         fill_na_dict = NA_DICT
 
