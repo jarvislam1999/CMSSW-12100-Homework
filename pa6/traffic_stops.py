@@ -56,11 +56,18 @@ def read_and_process_allstops(csv_file):
 
     Returns: (dataframe): a processed dataframe
     '''
+    # df.at()
 
     # YOUR CODE HERE
     # REPLACE None WITH APPROPRIATE RETURN VALUE
-
-    return None
+    type_dict = {STOP_ID: str, OFFICER_ID: str}
+    parse_dates = [DATE_COL]
+    df = pd.read_csv(csv_file, dtype= type_dict, parse_dates = parse_dates)
+    df[YEAR_COL] = df[DATE_COL].map(lambda x: x.year)
+    df[MONTH_COL] = df[DATE_COL].dt.month
+    df[STOP_SEASON] = df[MONTH_COL]
+    
+    return df
 
 
 # Task 1b
