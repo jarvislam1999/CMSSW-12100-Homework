@@ -61,13 +61,13 @@ def check_all_helper(df, df_expected):
     if df is None:
         pytest.fail("Got unexpected None for dataframe")
 
-    if df.equals(df_expected):
-        return
-
     if set(df.columns) != set(df_expected.columns):
         msg = "Actual columns: {} and\nExpected columns: {}\ndo not match"
         msg = msg.format(df.columns, df_expected.columns)
         pytest.fail(msg)
+
+    if df.sort_index(axis=1).equals(df_expected.sort_index(axis=1)):
+        return
 
     for col in df_expected.columns:
         find_diff_helper(col, 5, df, df_expected)
