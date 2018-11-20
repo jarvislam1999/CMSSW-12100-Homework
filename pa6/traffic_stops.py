@@ -61,12 +61,13 @@ def read_and_process_allstops(csv_file):
     # YOUR CODE HERE
     # REPLACE None WITH APPROPRIATE RETURN VALUE
     type_dict = {STOP_ID: str, OFFICER_ID: str}
-    parse_dates = [DATE_COL]
-    df = pd.read_csv(csv_file, dtype= type_dict, parse_dates = parse_dates)
-    df[YEAR_COL] = df[DATE_COL].map(lambda x: x.year)
+    # parse_dates =  # Alternative solution to to_datetime
+    df = pd.read_csv(csv_file, dtype= type_dict, parse_dates = [DATE_COL])
+    df[YEAR_COL] = df[DATE_COL].dt.year
     df[MONTH_COL] = df[DATE_COL].dt.month
-    df[STOP_SEASON] = df[MONTH_COL]
-    
+    df[STOP_SEASON] = df[MONTH_COL].map({v_: k for k, v in SEASONS_MONTHS.items() for v_ in v})
+    df[AGE_CAT] = pd.cut(df.driver_age, bins = AGE_BINS, labels = AGE_LABELS) 
+    df[ARREST_CITATION] = np.where((df[STOP_OUTCOME] == "Arrest"), True, False)
     return df
 
 
