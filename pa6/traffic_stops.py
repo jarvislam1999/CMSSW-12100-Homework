@@ -185,9 +185,12 @@ def get_rates(df, cat_col, outcome_col):
     '''
 
     # YOUR CODE HERE
+    try:
+        df = df.groupby(cat_col + [outcome_col]).count().iloc[:, 0].unstack(level = -1)
+    except:
+        return None
     # REPLACE None WITH APPROPRIATE RETURN VALUE
-
-    return None
+    return df.apply(lambda x: x/df.sum(axis =1)).fillna(0.0) 
 
 
 def compute_search_share(
