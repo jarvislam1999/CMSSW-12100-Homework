@@ -60,7 +60,10 @@ def read_and_process_allstops(csv_file):
 
     # YOUR CODE HERE
     type_dict = {STOP_ID: int, OFFICER_ID: str}
-    df = pd.read_csv(csv_file, dtype= type_dict, parse_dates = [DATE_COL])
+    try:
+        df = pd.read_csv(csv_file, dtype= type_dict, parse_dates = [DATE_COL])
+    except:
+        return None
     df[YEAR_COL] = df[DATE_COL].dt.year
     df[MONTH_COL] = df[DATE_COL].dt.month
     df[STOP_SEASON] = df[MONTH_COL].map({v_: k for k, v in SEASONS_MONTHS.items() for v_ in v})
@@ -69,7 +72,6 @@ def read_and_process_allstops(csv_file):
     df[OFFICER_ID] = df[OFFICER_ID].fillna("UNKNOWN")
     df = df.astype( {i: "category" for i in CATEGORICAL_COLS})
     # REPLACE None WITH APPROPRIATE RETURN VALUE
-    print(df)
     return df
 
 
@@ -92,9 +94,13 @@ def read_and_process_searches(csv_file, fill_na_dict=None):
 
 
     # YOUR CODE HERE
+    try:
+        df = pd.read_csv(csv_file)
+    except:
+        return None
     # REPLACE None WITH APPROPRIATE RETURN VALUE
 
-    return None
+    return df.fillna(fill_na_dict)
 
 # Task 2a
 def apply_val_filters(df, filter_info):
@@ -111,8 +117,12 @@ def apply_val_filters(df, filter_info):
 
     # YOUR CODE HERE
     # REPLACE None WITH APPROPRIATE RETURN VALUE
-
-    return None
+    if (not bool(filter_info)):
+        return df
+    try:
+        return df.loc[(df[list(filter_info)].isin(filter_info)).all(axis=1)]
+    except:
+        return None
 
 
 # Task 2b
@@ -129,8 +139,12 @@ def apply_range_filters(df, filter_info):
 
     # YOUR CODE HERE
     # REPLACE None WITH APPROPRIATE RETURN VALUE
-
-    return None
+    try:
+        for k,v in filter_info.items():
+            df = df.loc[df[k].between(v[0], v[1])]
+    except:
+        return None
+    return df
 
 
 # Task 3
@@ -147,9 +161,14 @@ def get_summary_statistics(df, group_col_list, summary_col=DRIVER_AGE):
     '''
 
     # YOUR CODE HERE
+    try: 
+        df1 = df.groupby(group_col_list)[summary_col].agg(['median', 'mean']) 
+        df1["mean_diff"] = df1["mean"] - df[summary_col].mean() 
+    except:
+        return None
     # REPLACE None WITH APPROPRIATE RETURN VALUE
 
-    return None
+    return df1
 
 
 # Task 4
