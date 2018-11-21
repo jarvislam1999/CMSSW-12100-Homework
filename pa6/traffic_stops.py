@@ -208,6 +208,10 @@ def compute_search_share(
     '''
 
     # YOUR CODE HERE
+    df = stops_df.sort_values(STOP_ID).merge(searches_df, how = 'left').fillna({SEARCH_CONDUCTED: False})
+    df = df.groupby(cat_col+ [SEARCH_CONDUCTED]).count().iloc[:, 0].unstack(level = -1).fillna(0.0)
+    df= df[df[True] >= M_stops] 
+    df = df.apply(lambda x: x/df.sum(axis =1)).sort_values(True, ascending = False) 
     # REPLACE None WITH APPROPRIATE RETURN VALUE
 
-    return None
+    return df
