@@ -208,10 +208,22 @@ def compute_search_share(
     '''
 
     # YOUR CODE HERE
+    if (not SEARCH_CONDUCTED in searches_df.columns):
+        searches_df[SEARCH_CONDUCTED] = searches_df[SEARCH_TYPE] != np.nan
     df = stops_df.sort_values(STOP_ID).merge(searches_df, how = 'left').fillna({SEARCH_CONDUCTED: False})
-    df = df.groupby(cat_col+ [SEARCH_CONDUCTED]).count().iloc[:, 0].unstack(level = -1).fillna(0.0)
-    df= df[df[True] >= M_stops] 
-    df = df.apply(lambda x: x/df.sum(axis =1)).sort_values(True, ascending = False) 
+    count = df[OFFICER_ID].value_counts() >= M_stops
+    df = df.loc[df[OFFICER_ID].isin(count[count].index)]
+    if len(df) == 0:
+        return None
+    try:
+        df = get_rates(df, cat_col, SEARCH_CONDUCTED)
+    except:
+        return None
+    try:
+        return df.sort_values(True, ascending = False)
+    except:
+        df[True] = 0.0
+        return df
+
     # REPLACE None WITH APPROPRIATE RETURN VALUE
 
-    return df
