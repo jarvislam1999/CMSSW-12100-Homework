@@ -66,6 +66,11 @@ def check_all_helper(df, df_expected):
         msg = msg.format(df.columns, df_expected.columns)
         pytest.fail(msg)
 
+    if df.shape != df_expected.shape:
+        msg = "Actual shape {} and\nExpected shape: {}\ndo not match"
+        msg = msg.format(df.shape, df_expected.shape)
+        pytest.fail(msg)
+
     if df.sort_index(axis=1).equals(df_expected.sort_index(axis=1)):
         return
 
@@ -307,7 +312,7 @@ def test_apply_val_filters_4():
     helper_apply_filters(ts.apply_val_filters,
                          "data/all_stops_basic_expected.gzip",
                          "data/all_stops_basic_empty.gzip",
-                         {"driver_gender":["M"],
+                         {"driver_gender":["F"],
                           "driver_race":["Hispanic"]})
 
 def test_apply_val_filters_5():
