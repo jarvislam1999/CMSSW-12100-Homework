@@ -59,20 +59,24 @@ def read_and_process_allstops(csv_file):
     # df.at()
 
     # YOUR CODE HERE
-    type_dict = {STOP_ID: int, OFFICER_ID: str}
+    type_dict = {STOP_ID: int, OFFICER_ID: str} # Determine column types
+    # Read CSV file, if the path is faulty return None
     try:
         df = pd.read_csv(csv_file, dtype= type_dict, parse_dates = [DATE_COL])
     except:
         return None
-    df[YEAR_COL] = df[DATE_COL].dt.year
-    df[MONTH_COL] = df[DATE_COL].dt.month
+    df[YEAR_COL] = df[DATE_COL].dt.year # Create Year column
+    df[MONTH_COL] = df[DATE_COL].dt.month # Create Month column
+    # Create season column
     df[STOP_SEASON] = df[MONTH_COL].map({v_: k for k, v in SEASONS_MONTHS.items() for v_ in v})
+    # Create age category column
     df[AGE_CAT] = pd.cut(df.driver_age, bins = AGE_BINS, labels = AGE_LABELS) 
+    # Create Arrest or Citation column
     df[ARREST_CITATION] = np.where(df[STOP_OUTCOME].isin(SUCCESS_STOPS), True, False)
-    df[OFFICER_ID] = df[OFFICER_ID].fillna("UNKNOWN")
-    df = df.astype( {i: "category" for i in CATEGORICAL_COLS})
+    df[OFFICER_ID] = df[OFFICER_ID].fillna("UNKNOWN") # Change NaN value in Officer Id to UNKNOWN 
     # REPLACE None WITH APPROPRIATE RETURN VALUE
-    return df
+    # Change various columns to categorical type
+    return df.astype( {i: "category" for i in CATEGORICAL_COLS}) 
 
 
 # Task 1b
@@ -94,13 +98,14 @@ def read_and_process_searches(csv_file, fill_na_dict=None):
 
 
     # YOUR CODE HERE
-    try:
+    try: # Try reading in CSV file, if path is faulty return None
         df = pd.read_csv(csv_file)
     except:
         return None
     # REPLACE None WITH APPROPRIATE RETURN VALUE
-
+    # Fill NaN values in certain columns as respective values in dictionary
     return df.fillna(fill_na_dict)
+
 
 # Task 2a
 def apply_val_filters(df, filter_info):
@@ -117,9 +122,10 @@ def apply_val_filters(df, filter_info):
 
     # YOUR CODE HERE
     # REPLACE None WITH APPROPRIATE RETURN VALUE
-    if (not bool(filter_info)):
+    if (not bool(filter_info)): # If filter_info is empty then return dataframe
         return df
-    try:
+    try: # Test for faulty columns, if so return None
+        # Filter values based on ones stated in dictionary
         return df.loc[(df[list(filter_info)].isin(filter_info)).all(axis=1)]
     except:
         return None
@@ -139,9 +145,9 @@ def apply_range_filters(df, filter_info):
 
     # YOUR CODE HERE
     # REPLACE None WITH APPROPRIATE RETURN VALUE
-    try:
-        for k,v in filter_info.items():
-            df = df.loc[df[k].between(v[0], v[1])]
+    try: # Test for faulty columns, if so return None
+        for k,v in filter_info.items(): # iterating through dictionary
+            df = df.loc[df[k].between(v[0], v[1])] # Range filtering
     except:
         return None
     return df
@@ -161,13 +167,14 @@ def get_summary_statistics(df, group_col_list, summary_col=DRIVER_AGE):
     '''
 
     # YOUR CODE HERE
-    try: 
+    try: # Test for faulty columns, if so return None
+        # Group data by list of columns and return the mean and median
         df1 = df.groupby(group_col_list)[summary_col].agg(['median', 'mean']) 
+        # Create the mean difference column
         df1["mean_diff"] = df1["mean"] - df[summary_col].mean() 
     except:
         return None
     # REPLACE None WITH APPROPRIATE RETURN VALUE
-
     return df1
 
 
@@ -185,11 +192,13 @@ def get_rates(df, cat_col, outcome_col):
     '''
 
     # YOUR CODE HERE
-    try:
+    try: # Check for faulty columns, if one detected return None
+        # Return a dataframe with counts of True and False for each category
         df = df.groupby(cat_col + [outcome_col]).count().iloc[:, 0].unstack(level = -1)
     except:
         return None
     # REPLACE None WITH APPROPRIATE RETURN VALUE
+    # Converting the counts into rates of True and False
     return df.apply(lambda x: x/df.sum(axis =1)).fillna(0.0) 
 
 
@@ -208,22 +217,25 @@ def compute_search_share(
     '''
 
     # YOUR CODE HERE
+    # Check if search_conducted is in the dataframe, if not then add it
     if (not SEARCH_CONDUCTED in searches_df.columns):
         searches_df[SEARCH_CONDUCTED] = searches_df[SEARCH_TYPE] != np.nan
+    # Merge 2 dataframes into df    
     df = stops_df.sort_values(STOP_ID).merge(searches_df, how = 'left').fillna({SEARCH_CONDUCTED: False})
-    count = df[OFFICER_ID].value_counts() >= M_stops
+    # Filter out officers with fewer than M stops
+    count = df[OFFICER_ID].value_counts() >= M_stops 
     df = df.loc[df[OFFICER_ID].isin(count[count].index)]
-    if len(df) == 0:
+    # REPLACE None WITH APPROPRIATE RETURN VALUE
+    if len(df) == 0: # If the filtered dataframe is empty return None
         return None
-    try:
+    try: # Try getting the True and False rate, if this failed return None
         df = get_rates(df, cat_col, SEARCH_CONDUCTED)
     except:
         return None
-    try:
+    # Try sorting the value based on True, if True doesn't exist create the True column
+    try: 
         return df.sort_values(True, ascending = False)
     except:
         df[True] = 0.0
         return df
-
-    # REPLACE None WITH APPROPRIATE RETURN VALUE
 
