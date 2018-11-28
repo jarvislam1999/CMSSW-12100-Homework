@@ -68,7 +68,8 @@ def read_and_process_allstops(csv_file):
     df[YEAR_COL] = df[DATE_COL].dt.year # Create Year column
     df[MONTH_COL] = df[DATE_COL].dt.month # Create Month column
     # Create season column
-    df[STOP_SEASON] = df[MONTH_COL].map({v_: k for k, v in SEASONS_MONTHS.items() for v_ in v})
+    df[STOP_SEASON] = df[MONTH_COL].map({v_: k for k, v in SEASONS_MONTHS.items() \
+        for v_ in v})
     # Create age category column
     df[AGE_CAT] = pd.cut(df.driver_age, bins = AGE_BINS, labels = AGE_LABELS) 
     # Create Arrest or Citation column
@@ -171,7 +172,7 @@ def get_summary_statistics(df, group_col_list, summary_col=DRIVER_AGE):
         # Group data by list of columns and return the mean and median
         df1 = df.groupby(group_col_list)[summary_col].agg(['median', 'mean']) 
         # Create the mean difference column
-        df1["mean_diff"] = df1["mean"] - df[summary_col].mean() 
+        df1["mean_diff"] = df1["mean"] - df[summary_col].mean() #transform
     except:
         return None
     # REPLACE None WITH APPROPRIATE RETURN VALUE
@@ -237,5 +238,5 @@ def compute_search_share(
         return df.sort_values(True, ascending = False)
     except:
         df[True] = 0.0
-        return df
+        return df #list(df.columns.values) 
 
