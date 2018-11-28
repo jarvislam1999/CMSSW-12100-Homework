@@ -1,0 +1,17 @@
+config_file,num_trials,target_wait_time,max_num_booths,num_booths,avg_wait_time
+config-single-precinct-3.json,1,5000,10,1,2172.6077515780294
+config-single-precinct-3.json,1,1000,10,2,910.3117170513368
+config-single-precinct-3.json,1,500,10,3,491.38132118994696
+config-single-precinct-3.json,1,10,10,8,3.7065183693918606
+config-single-precinct-3.json,1,2,10,9,1.1906720581076442
+config-single-precinct-3.json,1,10,5,0,
+config-single-precinct-3.json,1,2,5,0,
+config-single-precinct-3.json,1,2000,1,0,
+config-single-precinct-3.json,20,5000,10,1,2203.0502079782727
+config-single-precinct-3.json,20,1000,10,2,917.6158149307945
+config-single-precinct-3.json,20,500,10,3,491.38132118994696
+config-single-precinct-3.json,20,10,10,8,4.630351652014112
+config-single-precinct-3.json,20,2,10,9,1.5186807762331307
+config-single-precinct-3.json,20,10,5,0,
+config-single-precinct-3.json,20,2,5,0,
+config-single-precinct-3.json,20,2000,1,0,

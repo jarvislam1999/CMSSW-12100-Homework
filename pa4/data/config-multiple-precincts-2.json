@@ -1,0 +1,115 @@
+{ 
+  "seed": 1438021247,
+  "precincts": [
+      {
+       "name": "Downtown (1 booth)",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 1,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      },
+      {
+       "name": "Downtown (2 booths)",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 2,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      },
+      {
+       "name": "Downtown (3 booths)",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 3,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      },
+      {
+       "name": "Downtown (4 booths)",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 4,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      },
+      {
+       "name": "Downtown (5 booths)",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 5,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      },
+      {
+       "name": "Downtown (10 booths)",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 10,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      },
+      {
+       "name": "Downtown (50 booths)",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 50,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      },
+      {
+       "name": "Downtown (100 booths)",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 100,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      },
+      {
+       "name": "Downtown (500 booths)",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 500,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      },
+      {
+       "name": "Downtown (1000 booths)",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 1000,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      }
+  ]
+}

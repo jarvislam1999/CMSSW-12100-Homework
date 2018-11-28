@@ -1,0 +1,13 @@
+compile_and_lint:
+    stage: build
+    script:
+        - python3 -m py_compile pa3/*.py
+        - pylint -E pa3/*.py
+
+run_tests:
+    stage: test
+    script:
+        - cd pa3/data && ./get_large_files.sh
+        - cd .. && py.test -v
+    after_script:
+        - cd pa3/ && ../common/grader.py

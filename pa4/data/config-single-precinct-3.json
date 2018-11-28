@@ -1,0 +1,16 @@
+{ 
+  "seed": 1438021247,
+  "precincts": [
+      {
+       "name": "Sahara Square",
+       "hours_open": 13, 
+       "num_voters": 500, 
+       "num_booths": 5,
+       "voter_distribution": {
+                               "type": "poisson", 
+                               "voting_duration_rate": 0.1, 
+                               "arrival_rate": 0.7
+                             }
+      }
+  ]
+}
