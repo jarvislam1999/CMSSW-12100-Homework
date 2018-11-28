@@ -403,9 +403,12 @@ class DivvyData(object):
         """
 
         # YOUR CODE HERE
-
+        bike_dict = {}
+        for trip in self.trips:
+            bike_dict[trip.bikeid] = bike_dict.get(trip.bikeid, 0) \
+            + trip.tripduration
         # Replace {} with the correct return value
-        return {}
+        return bike_dict
 
     
     def get_bike_movements(self):
@@ -428,7 +431,33 @@ class DivvyData(object):
         """
     
         # YOUR CODE HERE
+        bike_dict = {}
+        final_dict = {}
 
+        for trip in self.trips:
+            if (trip.bikeid not in bike_dict):
+                bike_dict[trip.bikeid] = trip.to_station
+            elif (trip.from_station != bike_dict[trip.bikeid]):
+                if (trip.bikeid not in final_dict):
+                    final_dict[trip.bikeid] = []
+                final_dict[trip.bikeid].append((bike_dict[trip.bikeid]\
+                    , trip.from_station, trip.from_station.dpcapacity - \
+                    bike_dict[trip.bikeid].dpcapacity))
+            else:
+                bike_dict[trip.bikeid] = trip.to_station
+
+
+        '''
+            trip_tuple = (trip.from_station, trip.to_station)
+            if(trip.from_station != trip_tuple[1] and trip_tuple != (0,0)):
+                bike_dict[trip.bikeid] = (trip_tuple[1] ,trip.from_station \
+                    , trip.from_station.dpcapacity - trip_tuple[1].dpcapacity)
+            else:
+                trip_tuple = (trip.from_station, trip.to_station)
+        '''
+        # Replace {} with the correct return value
+        print(final_dict)
+        return final_dict
         # Replace {} with the correct return value
         return {}
         

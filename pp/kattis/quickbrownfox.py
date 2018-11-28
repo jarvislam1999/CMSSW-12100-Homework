@@ -17,9 +17,20 @@ import sys
 # If the phrase is a pangram, just return an empty list.
 def solve(phrase):
     # YOUR CODE HERE
-
+    pphrase = phrase.lower().replace(" ", "").replace("'", "")
+    letter_dict = {}
+    missing = []
+    for l in pphrase:
+        letter_dict[l] = True
+    for l in range(ord('a'), ord('z')):
+        if (chr(l) not in letter_dict):
+            missing.append(chr(l))
+    if (len(missing) == 0):
+        return "pangram"
+    else:
+        return "missing " + "".join(missing)
     # Replace [] with the list of missing characters
-    return []
+    
 
 
 if __name__ == "__main__":

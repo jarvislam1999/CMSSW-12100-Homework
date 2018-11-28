@@ -16,9 +16,17 @@ def solve(lines):
     """
 
     # YOUR CODE HERE
+    len_list = [len(line) for line in lines]
+    max_len = max(len_list)
+    ragged_sum = 0
+    for line in lines:
+        ragged_sum += (max_len - len(line)) ** 2
+
+
+
 
     # Replace 0 with your return value
-    return 0
+    return ragged_sum
 
 
 if __name__ == "__main__":

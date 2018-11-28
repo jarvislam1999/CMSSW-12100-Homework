@@ -1,5 +1,6 @@
 import json
 import dateutil.parser
+from datetime import datetime
 
 
 class Assignment(object):
@@ -50,12 +51,50 @@ class Student(object):
 ### Implement your Team class here ###
 ###                                ###
 
+class Team(object):
+    def __init__(self, team_id, students, submissions):
+        self.team_id = team_id
+        self.students = students
+        self.submissions = submissions
+    def includes_dropped(self):
+        for st in self.students:
+            '''
+            print(st.cnetid)
+            print(st.dropped)
+            '''
+            count = 0
+            if (st.dropped == True):
+                return True
+        
+        return False
+    def extension_used(self):
+        sum_extensions = 0
+        for su in self.submissions:
+            sum_extensions += su.extension_used
+        return sum_extensions
+
+
 
 ###         YOUR CODE HERE               ###
 ###                                      ###
 ### Implement your Submission class here ###
 ###                                      ###
 
+class Submission(object):
+    def __init__(self, assignment, submitted_at, extensions_used):
+        self.assignment = assignment
+        self.submitted_at = submitted_at
+        self. extensions_used = extensions_used
+
+    def deadline_delta(self):
+        '''
+        d1 = dateutil.parser.parse(self.submitted_at)
+        d2 = dateutil.parser.parse(self.assignment["deadline"])
+        '''
+        d1 = self.submitted_at
+        d2 = self.assignment.deadline
+        return (d1 - d2).total_seconds()
+        
 
 
 def time_str(t):
@@ -215,7 +254,18 @@ def create_team_objects(teams_json, students, assignments):
     """    
     teams = {}
 
+
     ### YOUR CODE HERE ###
+    for t in teams_json:
+        student_t = []
+        submission_t = []
+        for s in t["students"]:
+            student_t.append(students[s])
+        for s in t["submissions"]:
+            submission_t.append(Submission(assignments[s["assignment_id"]]\
+                , s["submitted_at"], s["extensions_used"]))
+        t_obj = Team(t["team_id"], student_t, submission_t)
+        teams[t["team_id"]] = t_obj
 
     return teams
 

@@ -10,19 +10,37 @@ import sys
 # This function takes a single parameter: a list of integers, each of
 # which represents t_i (as described in the problem statement)
 def solve(times):
-    # YOUR CODE HERE
+	# YOUR CODE HERE
 
-    # Replace 0 with the earliest day the party can be
-    # organized (as described in the problem statement)
-    return 0
+	# Replace 0 with the earliest day the party can be
+	# organized (as described in the problem statement)
+	print(max(times))
+	
+	count_day = [0] * (max(times) + 1) 
+	for time in times:
+		count_day[time] += 1
+
+	count_day[len(count_day) - 1] -= 1
+
+	max_day = 0
+	max_day_list = []
+	diff = max(times)
+	for item in range(len(count_day) - 1, -1, -1): 
+		max_day += (count_day[item] - (diff - item))
+		max_day_list.append(max_day)
+		diff = item
+
+	
+	return max(times) + 2 + max(max_day_list)
+
 
 
 if __name__ == "__main__":
-    tokens = sys.stdin.read().strip().split()
+	tokens = sys.stdin.read().strip().split()
 
-    n = int(tokens.pop(0))
+	n = int(tokens.pop(0))
 
-    times = [int(t) for t in tokens]
-    assert len(times) == n
+	times = [int(t) for t in tokens]
+	assert len(times) == n
 
-    print(solve(times))
+	print(solve(times))

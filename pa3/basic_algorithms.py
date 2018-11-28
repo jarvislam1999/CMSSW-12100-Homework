@@ -1,6 +1,6 @@
 # CS121: Analyzing Election Tweets
 
-# YOUR NAME
+# JARVIS LAM
 
 # Algorithms for efficiently counting and sorting distinct
 # `entities`, or unique values, are widely used in data
@@ -14,85 +14,141 @@ from util import sort_count_pairs
 
 
 def count_items(items):
-    '''
-    Counts each distinct item (entity) in a list of items
+	'''
+	Counts each distinct item (entity) in a list of items
 
-    Inputs:
-        items: list of items (must be hashable/comparable)
+	Inputs:
+		items: list of items (must be hashable/comparable)
 
-    Returns: list (item, number of occurrences).
-    '''
+	Returns: list (item, number of occurrences).
+	'''
 
-    # YOUR CODE GOES HERE
-    # REPLACE RETURN VALUE WITH AN APPROPRIATE VALUE
-    return []
+	# YOUR CODE GOES HERE
+
+	# Initializing dictionary to store count for distinct items
+	count_dict = {}
+	# Loop through input list and fill dictionary
+	for i in items:
+		if i not in count_dict:
+			count_dict[i] = 0
+		count_dict[i] += 1
+
+	# Initializing output list
+	count_list = []
+	# Putting data from dictionary to the list
+	for i in count_dict:
+		count_list.append((i, count_dict[i]))
+
+
+	# REPLACE RETURN VALUE WITH AN APPROPRIATE VALUE
+	return count_list
 
 
 def find_top_k(items, k):
-    '''
-    Find the K most frequently occurring items
+	'''
+	Find the K most frequently occurring items
 
-    Inputs:
-        items: list of items (must be hashable/comparable)
-        k: a non-negative integer
+	Inputs:
+		items: list of items (must be hashable/comparable)
+		k: a non-negative integer
 
-    Returns: sorted list of the top K tuples
+	Returns: sorted list of the top K tuples
 
-    '''
+	'''
 
-    # Error checking (DO NOT MODIFY)
-    if k < 0:
-        raise ValueError("In find_top_k, k must be a non-negative integer")
+	# Error checking (DO NOT MODIFY)
+	if k < 0:
+		raise ValueError("In find_top_k, k must be a non-negative integer")
 
-    # Runs the helper function for you (DO NOT MODIFY)
-    item_counts = count_items(items)
+	# Runs the helper function for you (DO NOT MODIFY)
+	item_counts = count_items(items)
 
-    # YOUR CODE GOES HERE
-    # REPLACE RETURN VALUE WITH AN APPROPRIATE VALUE
-    return []
+	# YOUR CODE GOES HERE
+
+	# Initializing output list
+	top_k_list = []
+	# Initializing sorted list
+	sorted_item_counts = sort_count_pairs(item_counts)
+
+	if len(sorted_item_counts) <= k:
+		return sorted_item_counts
+	for num in range(k):
+		top_k_list.append(sorted_item_counts[num])
+
+	# REPLACE RETURN VALUE WITH AN APPROPRIATE VALUE
+	return top_k_list
 
 
 def find_min_count(items, min_count):
-    '''
-    Find the items that occur at least min_count times
+	'''
+	Find the items that occur at least min_count times
 
-    Inputs:
-        items: a list of items  (must be hashable/comparable)
-        min_count: integer
+	Inputs:
+		items: a list of items  (must be hashable/comparable)
+		min_count: integer
 
-    Returns: sorted list of tuples
-    '''
+	Returns: sorted list of tuples
+	'''
 
-    # Runs the helper function for you (DO NOT MODIFY)
-    item_counts = count_items(items)
+	# Runs the helper function for you (DO NOT MODIFY)
+	item_counts = count_items(items)
+	
+	# YOUR CODE HERE
+	
+	#Check if list is empty
+	if (len(items) == 0):
+		return []
 
-    # YOUR CODE HERE
-    # REPLACE RETURN VALUE WITH AN APPROPRIATE VALUE
-    return []
+	# Sort item_counts
+	sorted_item_counts = sort_count_pairs(item_counts)
+	# Initializing output list
+	min_count_list = []
+
+	# Filling the output list
+	index = 1
+	count_until_min = sorted_item_counts[index - 1][1]
+	while (count_until_min >= min_count and index <= len(sorted_item_counts)):
+		min_count_list.append(sorted_item_counts[index - 1])
+		index += 1
+		if (index <= len(sorted_item_counts)):
+			count_until_min = sorted_item_counts[index - 1][1]
+	# REPLACE RETURN VALUE WITH AN APPROPRIATE VALUE
+	return min_count_list
 
 
 def find_frequent(items, k):
-    '''
-    Find items where the number of times the item occurs is at least
-    1/k * len(items).
+	'''
+	Find items where the number of times the item occurs is at least
+	1/k * len(items).
 
-    Input:
-        items: a list of items  (must be hashable/comparable)
-        k: integer
+	Input:
+		items: a list of items  (must be hashable/comparable)
+		k: integer
 
-    Returns: sorted list of tuples
-    '''
+	Returns: sorted list of tuples
+	'''
 
-    counter = {}
+	counter = {}
 
-    for item in items:
+	for item in items:
 
-        if len(counter) > k - 1:
-            raise ValueError(
-                "The number of elements stored in counter" +
-                " should not exceed (k-1)=" + str(k-1))
+		if len(counter) > k - 1:
+			raise ValueError(
+				"The number of elements stored in counter" +
+				" should not exceed (k-1)=" + str(k-1))
 
-        # YOUR CODE HERE
-        # WRITE THE APPROPRIATE UPDATE LOGIC FOR COUNTER
+		# YOUR CODE HERE
 
-    return sort_count_pairs(counter.items())
+		if (item in counter):
+			counter[item] += 1
+		else:
+			counter[item] = 1
+			if len(counter) > k - 1:
+				for key in list(counter):
+					counter[key] -= 1
+					if counter[key] == 0:
+						del counter[key]
+
+		# WRITE THE APPROPRIATE UPDATE LOGIC FOR COUNTER
+
+	return sort_count_pairs(counter.items())

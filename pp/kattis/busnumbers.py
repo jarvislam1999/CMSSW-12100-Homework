@@ -16,6 +16,30 @@ def solve(numbers):
     """
 
     # YOUR CODE HERE
+    dict_number = {}
+    list_number = []
+
+    for num in numbers:
+        dict_number[num] = True
+    for num in numbers:
+        lower_index = num
+        higher_index = num
+        if (dict_number[num]):
+            while(lower_index - 1 in dict_number):
+                lower_index -= 1
+                dict_number[lower_index] = False
+            while(higher_index + 1 in dict_number):
+                higher_index += 1
+                dict_number[higher_index] = False
+            if(higher_index - lower_index == 0):
+                list_number.append(num)
+            elif (higher_index - lower_index == 1):
+                list_number.append(lower_index)
+                list_number.append(higher_index)
+            else:
+                list_number.append(str(lower_index) + "-" + str(higher_index))
+        dict_number[num] = False
+    return list_number
 
     # Replace "" with your return value
     return ""

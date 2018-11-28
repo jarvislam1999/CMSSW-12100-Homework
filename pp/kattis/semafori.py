@@ -18,9 +18,23 @@ def solve(l, lights):
     """
 
     # YOUR CODE HERE
+    second = 0
+    position = 1
+    color = 1
+    '''
+    while (light < len(lights)):
+        second += lights[light][0] - position
+    '''
 
+    for light in lights:
+        second += light[0] - position 
+        color = second % (light[1] + light[2])
+        if (color < light[1]):
+            second += light[1] - color
+        position = light[0]
+
+    return second + l - position
     # Replace the 0 with your return value
-    return 0
 
 
 if __name__ == "__main__":
