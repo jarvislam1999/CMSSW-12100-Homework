@@ -79,7 +79,7 @@ def compare_trees(tree, expected_tree, error_prefix, compare_counts=False, compa
     if compare_counts:
         assert tree.count == expected_tree["count"], \
             node_error_prefix + "Node has incorrect count." \
-                                "Got {}, expected {}".format(tree.count, expected_tree["total_count"])
+                                "Got {}, expected {}".format(tree.count, expected_tree["count"])
 
     if compare_verbose_labels:
         assert tree.verbose_label == expected_tree["verbose_label"], \
