@@ -1,0 +1,37 @@
+"company","year","race","gender","job_category","count"
+"Apple",2016,"Asian","male","Executive/Senior officials & Mgrs",10
+"Apple",2016,"Asian","female","Executive/Senior officials & Mgrs",4
+"Apple",2016,"Asian","male","Professionals",6972
+"Apple",2016,"Asian","female","Professionals",2650
+"Apple",2016,"Latino","male","Executive/Senior officials & Mgrs",2
+"Apple",2016,"Latino","female","Executive/Senior officials & Mgrs",0
+"Apple",2016,"Latino","male","Professionals",799
+"Apple",2016,"Latino","female","Professionals",382
+"Apple",2016,"White","male","Executive/Senior officials & Mgrs",73
+"Apple",2016,"White","female","Executive/Senior officials & Mgrs",15
+"Apple",2016,"White","male","Professionals",9012
+"Apple",2016,"White","female","Professionals",2635
+"Facebook",2016,"Asian","male","Executive/Senior officials & Mgrs",74
+"Facebook",2016,"Asian","female","Executive/Senior officials & Mgrs",30
+"Facebook",2016,"Asian","male","Professionals",2440
+"Facebook",2016,"Asian","female","Professionals",1112
+"Facebook",2016,"Latino","male","Executive/Senior officials & Mgrs",9
+"Facebook",2016,"Latino","female","Executive/Senior officials & Mgrs",7
+"Facebook",2016,"Latino","male","Professionals",209
+"Facebook",2016,"Latino","female","Professionals",133
+"Facebook",2016,"White","male","Executive/Senior officials & Mgrs",254
+"Facebook",2016,"White","female","Executive/Senior officials & Mgrs",94
+"Facebook",2016,"White","male","Professionals",2830
+"Facebook",2016,"White","female","Professionals",983
+"Google",2016,"Asian","male","Executive/Senior officials & Mgrs",6
+"Google",2016,"Asian","female","Executive/Senior officials & Mgrs",0
+"Google",2016,"Asian","male","Professionals",8622
+"Google",2016,"Asian","female","Professionals",3509
+"Google",2016,"Latino","male","Executive/Senior officials & Mgrs",0
+"Google",2016,"Latino","female","Executive/Senior officials & Mgrs",0
+"Google",2016,"Latino","male","Professionals",1107
+"Google",2016,"Latino","female","Professionals",376
+"Google",2016,"White","male","Executive/Senior officials & Mgrs",20
+"Google",2016,"White","female","Executive/Senior officials & Mgrs",4
+"Google",2016,"White","male","Professionals",13883
+"Google",2016,"White","female","Professionals",3302
