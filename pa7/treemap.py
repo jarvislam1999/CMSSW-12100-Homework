@@ -72,7 +72,7 @@ def compute_internal_counts(t):
     '''
 
     ### Replace 0 with the appropriate return value
-    if (t.children == None):
+    if (t.num_children() == 0):
         return t.count
     t.count = sum([compute_internal_counts(child) for child in t.children])
     return t.count
@@ -95,7 +95,12 @@ def compute_verbose_labels(t, prefix=None):
 
 
     ### YOUR CODE HERE
-
+    if (prefix == None or prefix == ''):
+        t.verbose_label = t.label
+    else:
+        t.verbose_label = prefix + ': ' + t.label
+    for child in t.children:
+        compute_verbose_labels(child, t.verbose_label)
     # Do not modify this return statement.
     # This function doesn't return anything!
     return None
@@ -117,9 +122,18 @@ def prune_tree(t, values_to_discard):
     '''
 
     ### YOUR CODE HERE
+    if (t.label in values_to_discard):
+        return None
+    t_ = tree.Tree(t.label, t.count)
+    if (t.num_children == 0):
+        return t_
+    for child in t.children:
+        child_t = prune_tree(child, values_to_discard)
+        if (child_t != None):
+            t_.add_child(child_t)
 
     ### Replace t with the appropriate return value
-    return t
+    return t_
 
 
 def validate_tuple_param(p, name):
