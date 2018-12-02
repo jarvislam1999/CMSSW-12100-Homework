@@ -178,6 +178,30 @@ class Rectangle:
         return str(self)
 
 
+def rectangulize(t, origin, size, label, verbose_label, vertical):
+    if (t.num_children() == 0):
+        return [Rectangle(origin, size, label, verbose_label)]
+    x,y = origin
+    w,h = size
+    rec_list =[]
+    for child in t.children:
+        if (child.count == 0):
+            ratio = 0
+        else:
+            ratio = child.count/ t.count
+        if (vertical == True):
+            rec_list = rec_list + rectangulize(child, (x,y), \
+                (w * ratio, h), child.label, child.verbose_label, \
+                not vertical)           
+            x += w * ratio
+        else:
+            rec_list = rec_list + rectangulize(child, (x,y), \
+                (w, h * ratio), child.label, child.verbose_label, \
+                not vertical)
+            y += h * ratio
+
+    return rec_list
+
 def compute_rectangles(t, bounding_rec_height=1.0, bounding_rec_width=1.0):
     '''
     Computes the rectangles for drawing a treemap of the provided tree
@@ -195,9 +219,11 @@ def compute_rectangles(t, bounding_rec_height=1.0, bounding_rec_width=1.0):
     compute_verbose_labels(t)
 
     ### YOUR CODE HERE
-
+    
     # Replace [] with the appropriate return value
-    return []
+    return rectangulize(t, (0.0, 0.0), \
+        (bounding_rec_width, bounding_rec_height), t.label, \
+        t. verbose_label, True)
 
 
 #############################
