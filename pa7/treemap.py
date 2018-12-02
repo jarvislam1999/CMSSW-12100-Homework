@@ -27,6 +27,28 @@ def load_diversity_data(filename, debug=False):
     data = pd.read_csv(filename)
 
     ### Add print statements here (if debug is True)
+    if (debug == True):
+        print('Diversity data comes from the following {} companies:'.format(len(data['company'].value_counts())))
+        companies_ = list(data['company'].value_counts().index)
+        companies_.sort()
+        print(', '.join(companies_))
+        print()
+        print('The data includes {} employees'.format(sum(data['count'])))
+        print()
+        print('gender')
+        gender_ = data.groupby('gender').sum()['count']
+        print('    female: {}'.format(gender_['female']))
+        print('    male: {}'.format(gender_['male']))
+        print()
+        print('race')
+        race_ = data.groupby('race').sum()['count'] 
+        for race in list(race_.index):
+            print('    ', race, ' : ', race_[race])
+        print()
+        print('job_category')
+        job_ = data.groupby('job_category').sum()['count'] 
+        for job in list(job_.index):
+            print('    ', job, ' : ', job_[job])
 
     return data
 
@@ -50,8 +72,10 @@ def compute_internal_counts(t):
     '''
 
     ### Replace 0 with the appropriate return value
-
-    return 0
+    if (t.children == None):
+        return t.count
+    t.count = sum([compute_internal_counts(child) for child in t.children])
+    return t.count
 
 
 def compute_verbose_labels(t, prefix=None):

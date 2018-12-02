@@ -19,6 +19,12 @@ def solve(rolls):
     """
 
     # Your code here.
+    roll = sorted(rolls, reverse = True)
+    if roll[0] != roll[1]:
+        return roll[0]
+    for i in range(1, len(roll) - 2):
+        if (roll[i] != roll[i+1]):
+            return roll[i+1]
 
     # Replace "None" with a suitable return value.
     return None

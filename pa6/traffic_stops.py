@@ -1,7 +1,7 @@
 '''
 Analyzing traffic stop data.
 
-YOUR NAME
+JARVIS LAM - CMSC 12100
 '''
 
 import numpy as np
@@ -68,13 +68,15 @@ def read_and_process_allstops(csv_file):
     df[YEAR_COL] = df[DATE_COL].dt.year # Create Year column
     df[MONTH_COL] = df[DATE_COL].dt.month # Create Month column
     # Create season column
-    df[STOP_SEASON] = df[MONTH_COL].map({v_: k for k, v in SEASONS_MONTHS.items() \
-        for v_ in v})
+    df[STOP_SEASON] = df[MONTH_COL].map({v_: k for k, v in \
+    	SEASONS_MONTHS.items() for v_ in v})
     # Create age category column
     df[AGE_CAT] = pd.cut(df.driver_age, bins = AGE_BINS, labels = AGE_LABELS) 
     # Create Arrest or Citation column
-    df[ARREST_CITATION] = np.where(df[STOP_OUTCOME].isin(SUCCESS_STOPS), True, False)
-    df[OFFICER_ID] = df[OFFICER_ID].fillna("UNKNOWN") # Change NaN value in Officer Id to UNKNOWN 
+    df[ARREST_CITATION] = np.where(df[STOP_OUTCOME]\
+    	.isin(SUCCESS_STOPS), True, False)
+    # Change NaN value in Officer Id to UNKNOWN
+    df[OFFICER_ID] = df[OFFICER_ID].fillna("UNKNOWN")  
     # REPLACE None WITH APPROPRIATE RETURN VALUE
     # Change various columns to categorical type
     return df.astype( {i: "category" for i in CATEGORICAL_COLS}) 
@@ -172,7 +174,7 @@ def get_summary_statistics(df, group_col_list, summary_col=DRIVER_AGE):
         # Group data by list of columns and return the mean and median
         df1 = df.groupby(group_col_list)[summary_col].agg(['median', 'mean']) 
         # Create the mean difference column
-        df1["mean_diff"] = df1["mean"] - df[summary_col].mean() #transform
+        df1["mean_diff"] = df1["mean"] - df[summary_col].mean()
     except:
         return None
     # REPLACE None WITH APPROPRIATE RETURN VALUE
@@ -195,7 +197,8 @@ def get_rates(df, cat_col, outcome_col):
     # YOUR CODE HERE
     try: # Check for faulty columns, if one detected return None
         # Return a dataframe with counts of True and False for each category
-        df = df.groupby(cat_col + [outcome_col]).count().iloc[:, 0].unstack(level = -1)
+        df = df.groupby(cat_col + [outcome_col]).count()\
+        .iloc[:, 0].unstack(level = -1)
     except:
         return None
     # REPLACE None WITH APPROPRIATE RETURN VALUE
@@ -222,7 +225,8 @@ def compute_search_share(
     if (not SEARCH_CONDUCTED in searches_df.columns):
         searches_df[SEARCH_CONDUCTED] = searches_df[SEARCH_TYPE] != np.nan
     # Merge 2 dataframes into df    
-    df = stops_df.sort_values(STOP_ID).merge(searches_df, how = 'left').fillna({SEARCH_CONDUCTED: False})
+    df = stops_df.sort_values(STOP_ID).merge(searches_df, how = 'left')\
+    .fillna({SEARCH_CONDUCTED: False})
     # Filter out officers with fewer than M stops
     count = df[OFFICER_ID].value_counts() >= M_stops 
     df = df.loc[df[OFFICER_ID].isin(count[count].index)]
@@ -233,10 +237,8 @@ def compute_search_share(
         df = get_rates(df, cat_col, SEARCH_CONDUCTED)
     except:
         return None
-    # Try sorting the value based on True, if True doesn't exist create the True column
-    try: 
-        return df.sort_values(True, ascending = False)
-    except:
+    # If True doesn't exist create the True column
+    if(True not in list(df.columns.values)):
         df[True] = 0.0
-        return df #list(df.columns.values) 
+    return df.sort_values(True, ascending = False)
 
