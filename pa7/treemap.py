@@ -133,7 +133,7 @@ def prune_tree(t, values_to_discard):
     for child in t.children: # Recursive step for the node's children
         child_t = prune_tree(child, values_to_discard)
         # Add child to the tree if it's not in the discard list
-        if (child_t != None): 
+        if (child_t is not None): 
             t_.add_child(child_t)
 
     ### Replace t with the appropriate return value
