@@ -123,14 +123,13 @@ def prune_tree(t, values_to_discard):
     '''
 
     ### YOUR CODE HERE
-    # We construct a new tree as we go from the root to leaf of the old tree
     # If node is in the discard list, then don't copy and return None
     if (t.label in values_to_discard): 
         return None
     t_ = tree.Tree(t.label, t.count) # Form a copy of the old node
     if (t.num_children == 0): # If leaf then return the node
         return t_
-    for child in t.children: # Recursive step for the node's children
+    for child in t.children:
         child_t = prune_tree(child, values_to_discard)
         # Add child to the tree if it's not in the discard list
         if (child_t is not None): 
@@ -203,7 +202,7 @@ def rectangulize(t, origin, size, label, verbose_label, vertical):
     x,y = origin
     w,h = size
     rec_list =[] # Initializing output list
-    for child in t.children: # Begin recursive step on the node's children
+    for child in t.children:
         if (child.count == 0): # Check against division by 0
             ratio = 0
         else:
@@ -212,12 +211,12 @@ def rectangulize(t, origin, size, label, verbose_label, vertical):
             rec_list = rec_list + rectangulize(child, (x,y), \
                 (w * ratio, h), child.label, child.verbose_label, \
                 not vertical) # Recursive step
-            x += w * ratio # Move to the next point on mother rectangle's width
+            x += w * ratio # Move to the next point on the width
         else: # Slice horizontally
             rec_list = rec_list + rectangulize(child, (x,y), \
                 (w, h * ratio), child.label, child.verbose_label, \
                 not vertical) # Recursive step
-            y += h * ratio # Next point on mother rectangle's height
+            y += h * ratio # Next point on the height
 
     return rec_list
 
