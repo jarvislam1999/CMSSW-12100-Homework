@@ -72,8 +72,9 @@ def compute_internal_counts(t):
     '''
 
     ### Replace 0 with the appropriate return value
-    if (t.children == None):
+    if (t.num_children() == 0): # Set value for base case
         return t.count
+    # Recursive step to compute sum of all children
     t.count = sum([compute_internal_counts(child) for child in t.children])
     return t.count
 
@@ -95,7 +96,12 @@ def compute_verbose_labels(t, prefix=None):
 
 
     ### YOUR CODE HERE
-
+    if (prefix == None or prefix == ''): # If root node or no prefix
+        t.verbose_label = t.label
+    else: # Set verbose label if there's a prefix
+        t.verbose_label = prefix + ': ' + t.label
+    for child in t.children: # Recursive step on the node's children
+        compute_verbose_labels(child, t.verbose_label)
     # Do not modify this return statement.
     # This function doesn't return anything!
     return None
@@ -117,9 +123,20 @@ def prune_tree(t, values_to_discard):
     '''
 
     ### YOUR CODE HERE
+    # If node is in the discard list, then don't copy and return None
+    if (t.label in values_to_discard): 
+        return None
+    t_ = tree.Tree(t.label, t.count) # Form a copy of the old node
+    if (t.num_children == 0): # If leaf then return the node
+        return t_
+    for child in t.children:
+        child_t = prune_tree(child, values_to_discard)
+        # Add child to the tree if it's not in the discard list
+        if (child_t is not None): 
+            t_.add_child(child_t)
 
     ### Replace t with the appropriate return value
-    return t
+    return t_
 
 
 def validate_tuple_param(p, name):
@@ -164,6 +181,45 @@ class Rectangle:
         return str(self)
 
 
+def rectangulize(t, origin, size, label, verbose_label, vertical):
+    '''
+    Recursive helper function to aid Task 3
+
+    Inputs:
+        t: a Tree object
+        origin: origin of the mother rectangle
+        size: width and height of the mother rectangle
+        label: label of the mother rectangle
+        verbose_label: verbose_label of the mother rectangle
+        vertical: Boolean to determine if we need to slice the
+        mother traingle vertically or horizontally
+    
+    Output: a list of Rectangle objects after we finish tracing the tree
+
+    '''
+    if (t.num_children() == 0): # If leaf node then return mother rectangle
+        return [Rectangle(origin, size, label, verbose_label)]
+    x,y = origin
+    w,h = size
+    rec_list =[] # Initializing output list
+    for child in t.children:
+        if (child.count == 0): # Check against division by 0
+            ratio = 0
+        else:
+            ratio = child.count/ t.count # Ratio to slice mother rectangle 
+        if (vertical == True): # Slice vertically
+            rec_list = rec_list + rectangulize(child, (x,y), \
+                (w * ratio, h), child.label, child.verbose_label, \
+                not vertical) # Recursive step
+            x += w * ratio # Move to the next point on the width
+        else: # Slice horizontally
+            rec_list = rec_list + rectangulize(child, (x,y), \
+                (w, h * ratio), child.label, child.verbose_label, \
+                not vertical) # Recursive step
+            y += h * ratio # Next point on the height
+
+    return rec_list
+
 def compute_rectangles(t, bounding_rec_height=1.0, bounding_rec_width=1.0):
     '''
     Computes the rectangles for drawing a treemap of the provided tree
@@ -181,9 +237,11 @@ def compute_rectangles(t, bounding_rec_height=1.0, bounding_rec_width=1.0):
     compute_verbose_labels(t)
 
     ### YOUR CODE HERE
-
+    
     # Replace [] with the appropriate return value
-    return []
+    return rectangulize(t, (0.0, 0.0), \
+        (bounding_rec_width, bounding_rec_height), t.label, \
+        t. verbose_label, True) # Perform recursive function
 
 
 #############################

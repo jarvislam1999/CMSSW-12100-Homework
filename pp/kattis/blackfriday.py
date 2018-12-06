@@ -22,7 +22,7 @@ def solve(rolls):
     roll = sorted(rolls, reverse = True)
     if roll[0] != roll[1]:
         return roll[0]
-    for i in range(1, len(roll) - 2):
+    for i in range(1, len(roll) - 1):
         if (roll[i] != roll[i+1]):
             return roll[i+1]
 

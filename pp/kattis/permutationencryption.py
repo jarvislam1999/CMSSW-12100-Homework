@@ -18,9 +18,22 @@ def encrypt(message, permutations):
     """
 
     # Your code here.
+    if (len(message) % len(permutations) == 0):
+        message1 = message[:]
+    else:
+        message1 = message + ' ' * (len(permutations) - \
+            len(message) % len(permutations))
+    new = ''
+    i = 0
+    while (i < len(message1)):
+        segment = message1[i: i + len(permutations)]
+        for per in permutations:
+            new += segment[per - 1]
+        i += len(permutations)
+
 
     # Replace "" with a suitable return value.
-    return ""
+    return new
 
 
 ### The following code handles the input and output tasks for
