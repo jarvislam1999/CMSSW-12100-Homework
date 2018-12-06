@@ -14,35 +14,20 @@ stocks = [['Date', 'Ticker Symbol', 'Open', 'Close'],
 
 class Stock_Info(object):
     def __init__(self, date, ticker, opening_price, closing_price):
-        self._date = date
-        self._ticker = ticker
-        self._opening_price = opening_price
-        self._closing_price = closing_price
+        self.date = date
+        self.ticker = ticker
+        self.opening_price = opening_price
+        self.__closing_price = closing_price
 
-    @property
-    def date(self):
-        return self._date
+    def get_closing_price(self):
+        return self.__closing_price
 
-    @property
-    def ticker(self):
-        return self._ticker
-
-    @property
-    def opening_price(self):
-        return self._opening_price
-
-    @property
-    def closing_price(self):
-        return self._closing_price
-
-    @closing_price.setter
-    def closing_price(self, correct_value):
-        self._closing_price = correct_value
+    def set_closing_price(self, correct_value):
+        self.__closing_price = correct_value
 
     def __repr__(self):
         return "|".join([self.date, self.ticker, 
-                         self.opening_price, self.closing_price])
-
+                         self.opening_price, self.__closing_price])
 
 
 def create_dict(data):
@@ -56,12 +41,11 @@ def create_dict(data):
 
     return rv
         
-
 def mystery(d, list0):
     for (x, y, z) in list0:
         for a in d[x]:
             if a.date == y:
-                a.closing_price = z
+                a.set_closing_price(z)
                 break
 
 
