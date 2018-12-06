@@ -21,9 +21,33 @@ def solve(l, cars):
     """
 
     # Your code here.
+    left = []
+    right = []
+    for car in cars:
+        if (car[1] == 'left'):
+            left.append(car[0])
+        else:
+            right.append(car[0])
+    bank = True
+    count = 0
+    while (len(left) != 0 or len(right) != 0):
+        cl = l * 100
+        i = 0
+        if (bank):
+            while (i < len(left) and cl >= left[i] ):
+                cl -= left[i]
+                i += 1
+            left = left[i:]
+        else:
+            while (i < len(right) and cl >= right[i]):
+                cl -= right[i]
+                i += 1
+            right = right[i:]
+        count += 1
+        bank = not bank
 
     # Replace 0 with a suitable return value.
-    return 0
+    return count
 
 
 ### The following code handles the input and output tasks for
