@@ -8,6 +8,33 @@ import sys
 # Do not modify any other code.
 
 
+def station_link(pieces):
+    l_dict = {}
+    for p in pieces:
+        for s in p: 
+            if (s not in l_dict):
+                l_dict[s] = []
+            if (s not in l_dict[p[0]] and s != p[0]):
+                l_dict[p[0]].append(s)
+            if (p[0] not in l_dict[s] and s != p[0]):
+                l_dict[s].append(p[0])
+        
+    return l_dict
+
+
+def path_recursive(d, start, end):
+    if (len(d[start]) == 0):
+        return (False, 0)
+    for s in d[start]:
+        if (s == end):
+            return (True, [end])
+        d[s].remove(start)
+        v = path_recursive(d, s, end)
+        if (v[0] == True):
+            return (True, [s] + v[1])
+    return (False, 0)
+
+
 def solve(pieces, start, end):
     """
     Parameters:
@@ -24,9 +51,14 @@ def solve(pieces, start, end):
     """
 
     # Your code here.
-
+    d = station_link(pieces)
+    
+    v = path_recursive(d, start, end)
+    if (v[0] == True):
+        return [start] + v[1]
+    else:
     # Replace "None" with a suitable return value.
-    return None
+        return None
 
 
 ### The following code handles the input and output tasks for

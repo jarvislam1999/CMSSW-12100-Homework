@@ -59,6 +59,11 @@ import sys
 #
 # If there are no feasible sequences of flights, the function must return the empty list.
 #
+
+
+def find_path(itinerary, schedules, t_min, t_max, start):
+    
+
 def flights(itinerary, schedules, t_min, t_max):
     # your code goes here
     return []
