@@ -1,5 +1,7 @@
 Grading report for Jarvis Lam (jarvislam1999)
-Generated on Saturday, December 01, at 12:35PM
+Generated on Friday, December 07, at 02:32PM
+
+According to our records, you are taking this class for a quality grade.
 
 Assignments
 ===========
@@ -8,10 +10,10 @@ Assignments
  PA3: 94.00
  PA4: 97.00
  PA5: 99.00
- PA6: Not graded yet
+ PA6: 95.00
  PA7: Not graded yet
 
-Assignments Total (out of 60): 40.71
+Assignments Total (out of 60): 48.86
 
 Exams
 =====
@@ -22,12 +24,30 @@ Exams Total (out of 40): 16.70
 
 Estimated grade
 ===============
-The assignments and exam(s) that have been graded so far
-comprise a total of 62.86 points. Of those 62.86 points,
-you have accrued 57.41 points
 
-If the course ended right now, your final score would be 91.34 (out of 100)
-
-And your grade would be: A-
++-----------+--------+--------+--------+--------+--------+--------+
+|           |  exam  |  exam  |  exam  |  exam  |  exam  |  exam  |
+|           |   0    |   25   |   50   |   75   |   90   |  100   |
++===========+========+========+========+========+========+========+
+|  pa7 = 0  | 65.56  | 70.56  | 75.56  | 80.56  | 83.56  | 85.56  |
+|           |        |   C+   |   B-   |   B    |   B    |   B+   |
++-----------+--------+--------+--------+--------+--------+--------+
+| pa7 = 25  | 67.70  | 72.70  | 77.70  | 82.70  | 85.70  | 87.70  |
+|           |        |   C+   |   B-   |   B    |   B+   |   B+   |
++-----------+--------+--------+--------+--------+--------+--------+
+| pa7 = 50  | 69.84  | 74.84  | 79.84  | 84.84  | 87.84  | 89.84  |
+|           |        |   C+   |   B-   |   B    |   B+   |   B+   |
++-----------+--------+--------+--------+--------+--------+--------+
+| pa7 = 75  | 71.99  | 76.99  | 81.99  | 86.99  | 89.99  | 91.99  |
+|           |   C+   |   B-   |   B    |   B+   |   B+   |   A-   |
++-----------+--------+--------+--------+--------+--------+--------+
+| pa7 = 90  | 73.27  | 78.27  | 83.27  | 88.27  | 91.27  | 93.27  |
+|           |   C+   |   B-   |   B    |   B+   |   A-   |   A-   |
++-----------+--------+--------+--------+--------+--------+--------+
+| pa7 = 100 | 74.13  | 79.13  | 84.13  | 89.13  | 92.13  | 94.13  |
+|           |   C+   |   B-   |   B    |   B+   |   A-   |   A-   |
++-----------+--------+--------+--------+--------+--------+--------+
+Note: Scores below 70 are dealt with on a case-by-case basis,
+      so we cannot estimate your grade in those cases.
 
 
