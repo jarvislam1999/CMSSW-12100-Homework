@@ -61,12 +61,30 @@ import sys
 #
 
 
-def find_path(itinerary, schedules, t_min, t_max, start):
-    
+def find_path(itinerary, schedules, t_min, t_max, start, t):
+    if (start == len(itinerary) - 1):
+        return []
+    if (itinerary[start + 1] in schedules[itinerary[start]]):
+        t_list = []
+        for time in schedules[itinerary[start]][itinerary[start + 1]]:
+            if (time[0] >= t + t_min and time[0] <= t + t_max):
+                trek = find_path(itinerary, schedules, \
+                    t_min, t_max, start + 1, time[1])
+                if (len(trek) == 0 and start < len(itinerary) - 2):
+                    return []
+                elif(start == len(itinerary) - 2):
+                    t_list.append([time])
+                for path in trek:
+                    t_list.append([time] + path)
+    else:
+        print("wow")
+        return []
+    return t_list
+
 
 def flights(itinerary, schedules, t_min, t_max):
     # your code goes here
-    return []
+    return find_path(itinerary, schedules, t_min, t_max, 0, 0.0)
 
 
 ### The following code handles the input and output tasks for
