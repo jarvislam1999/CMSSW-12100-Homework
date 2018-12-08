@@ -12,9 +12,14 @@ import sys
 def gcd(a,b):
     # This function takes a pair of floats and returns their greatest
     # common denominator.
-
+    if (a == b):
+    	return a
+    elif(a > b):
+    	return gcd(a - b, b)
+    else:
+    	return gcd(a, b - a)
     # replace 1 with an appropriate return value
-    return 1
+    # return 1
 
 ### The following code handles the input and output tasks for
 ### this problem.  Do not modify it!

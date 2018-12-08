@@ -11,11 +11,26 @@ import sys
 
 
 def is_ascending(l):
+    print(l)
+    if (len(l) == 0):
+        return True
+    middle = len(l) // 2
+    if (l[middle] < l[0] or l[middle] > l[len(l) - 1]):
+        return False
+    return all([is_ascending(l[:middle]), is_ascending(l[middle + 1:])])
+
     # replace True with a suitable return value
-    return True
+    # return True
 
 def is_descending(l):
     # replace True with a suitable return value
+    print(l)
+    if (len(l) == 0):
+        return True
+    middle = len(l) // 2
+    if (l[middle] > l[0] or l[middle] < l[len(l) - 1]):
+        return False
+    return all([is_descending(l[:middle]), is_descending(l[middle + 1:])])
     return True
 
 
