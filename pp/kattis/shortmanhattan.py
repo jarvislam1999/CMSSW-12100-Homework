@@ -26,19 +26,32 @@ import sys
 #           just one path: the empty path.
 def find_paths(x0,y0,x1,y1):
     # your code goes here
-    if ((x0 == x1 and y0 == y1) or x0 > x1 or y0 > y1):
-    	return [[]]
-    if (x0 == x1):
-    	return [['up'] * (y1 - y0)]
-    if (y0 == y1):
-    	return [['right'] * (x1 - x0)]
-    l = []
-    l_right = find_paths(x0 + 1, y0, x1, y1)
-    for r in l_right:
-    	l.append(['right'] + r)
-    l_up = find_paths(x0, y0 + 1, x1, y1)
-    for u in l_up:
-    	l.append(['up'] + u)
+    if ((x0 == x1 and y0 == y1)):
+        return [[]]
+    if (x0 <= x1 and y0 <= y1):
+        if (x0 == x1):
+            return [['up'] * (y1 - y0)]
+        if (y0 == y1):
+            return [['right'] * (x1 - x0)]
+        l = []
+        l_right = find_paths(x0 + 1, y0, x1, y1)
+        for r in l_right:
+            l.append(['right'] + r)
+        l_up = find_paths(x0, y0 + 1, x1, y1)
+        for u in l_up:
+            l.append(['up'] + u)
+    if (x0 >= x1 and y0 >= y1):
+        if (x0 == x1):
+            return [['down'] * (y0 - y1)]
+        if (y0 == y1):
+            return [['left'] * (x0 - x1)]
+        l = []
+        l_left = find_paths(x0 - 1, y0, x1, y1)
+        for le in l_left:
+            l.append(['left'] + le)
+        l_down = find_paths(x0, y0 - 1, x1, y1)
+        for do in l_down:
+            l.append(['down'] + do)
     return l
 
 
