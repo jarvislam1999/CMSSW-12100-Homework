@@ -19,13 +19,19 @@ def solve(rolls):
     """
 
     # Your code here.
+    if (len(rolls) == 0):
+        return None
+    if (len(rolls) == 1):
+        return 1
     roll = sorted(rolls, reverse = True)
     if roll[0] != roll[1]:
-        return roll[0]
-    for i in range(1, len(roll) - 1):
+        return rolls.index(roll[0]) + 1
+    for i in range(1, len(roll) - 2):
         if (roll[i] != roll[i+1]):
-            return roll[i+1]
-
+            if (roll[i + 1] != roll[i + 2]):
+                return rolls.index(roll[i+1]) + 1
+    if (roll[len(rolls) - 1] != roll[len(rolls) -2]):
+        return rolls.index(roll[len(rolls) - 1]) + 1
     # Replace "None" with a suitable return value.
     return None
 

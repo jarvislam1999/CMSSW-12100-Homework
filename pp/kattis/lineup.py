@@ -11,7 +11,6 @@ import sys
 
 
 def is_ascending(l):
-    print(l)
     if (len(l) == 0):
         return True
     middle = len(l) // 2
@@ -24,7 +23,6 @@ def is_ascending(l):
 
 def is_descending(l):
     # replace True with a suitable return value
-    print(l)
     if (len(l) == 0):
         return True
     middle = len(l) // 2

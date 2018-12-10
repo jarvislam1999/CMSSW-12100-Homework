@@ -63,7 +63,7 @@ import sys
 
 def find_path(itinerary, schedules, t_min, t_max, start, t):
     if (start == len(itinerary) - 1):
-        return []
+        return [['done']]
     if (itinerary[start + 1] in schedules[itinerary[start]]):
         t_list = []
         for time in schedules[itinerary[start]][itinerary[start + 1]]:
@@ -72,12 +72,9 @@ def find_path(itinerary, schedules, t_min, t_max, start, t):
                     t_min, t_max, start + 1, time[1])
                 if (len(trek) == 0 and start < len(itinerary) - 2):
                     return []
-                elif(start == len(itinerary) - 2):
-                    t_list.append([time])
                 for path in trek:
                     t_list.append([time] + path)
     else:
-        print("wow")
         return []
     return t_list
 

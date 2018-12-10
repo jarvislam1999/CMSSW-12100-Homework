@@ -26,7 +26,7 @@ import sys
 #           just one path: the empty path.
 def find_paths(x0,y0,x1,y1):
     # your code goes here
-    if (x0 == x1 and y0 == y1):
+    if ((x0 == x1 and y0 == y1) or x0 > x1 or y0 > y1):
     	return [[]]
     if (x0 == x1):
     	return [['up'] * (y1 - y0)]

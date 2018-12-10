@@ -53,6 +53,9 @@ def solve(pieces, start, end):
     # Your code here.
     d = station_link(pieces)
     
+    if (start not in d or end not in d):
+        return None
+
     v = path_recursive(d, start, end)
     if (v[0] == True):
         return [start] + v[1]

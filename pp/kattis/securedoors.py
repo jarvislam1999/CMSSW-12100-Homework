@@ -15,7 +15,13 @@ import sys
 # the output as specified in the problem statement.
 def solve(access_log):
     # Replace pass with your solution
-    pass
+    l_dict = {}
+    for l in access_log:
+        if (l[1] not in l_dict):
+            l_dict[l[1]] = 'exit'
+        print(l[1], ' ', l[0])
+        if (l_dict[l[1]] == l[0]):
+
 
 if __name__ == "__main__":
     tokens = sys.stdin.read().strip().split()
