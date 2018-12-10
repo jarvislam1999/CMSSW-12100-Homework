@@ -277,6 +277,7 @@ def find_frequent_ngrams(tweets, n, k):
 	
 	return find_frequent(make_n_grams(tweets,n),k)
 
+
 # I put this function before Task 7 because it's easier to see
 def takeSecond(elem):
 	'''
@@ -290,6 +291,7 @@ def takeSecond(elem):
 	Output: the month (second element)
 	'''
 	return elem[1]
+
 
 # Task 7
 def find_top_k_ngrams_by_month(tweets, n, k):
@@ -332,7 +334,6 @@ def find_top_k_ngrams_by_month(tweets, n, k):
 	return final_list
 
 
-	
 """
 DO NOT MODIFY PAST THIS POINT
 """

@@ -19,6 +19,18 @@ class Review:
     def get_comments(self):
         return self.comments
 
+
+class Reviewer(object):
+    def __init(self, name, university, areas):
+        self.name = name
+        self.university = university
+        self.areas = areas
+    def add_area(self, area):
+        self.areas.append(area)
+    def remove_area(self, area):
+        self.remove(area)
+
+
 class Paper:
     ''' Class for representing papers '''
     def __init__(self, title, authors, areas):
@@ -40,6 +52,12 @@ class Paper:
 
         r = Review(self, reviewer_name, score, comments)
         self.reviews.append(r)
+
+    def overlap(self, reviewer):
+        for area in reviewer.areas:
+            if (area not in self.areas):
+                return False
+        return True
 
 class Journal:
     ''' Class for representing journals '''
@@ -79,6 +97,11 @@ class Journal:
         '''
 
         papers_above = []
+        for paper in list(self.papers):
+            if (len(paper.reviews) == 0):
+                continue
+            if (sum([review.get_score() for review in paper.reviews])/len(paper.reviews) >= score):
+                papers_above.append(paper)
         return papers_above
 
 

@@ -50,6 +50,22 @@ class Santa(object):
         self._total_num_ready_presents += total
 
 
+class Elf(object):
+    def __init__(self):
+        self.presents =[]
+
+    def add_present(self, present):
+        self.presents.append(present)
+
+    def remove_presents(self, current_time):
+        count = 0
+        for present in self.presents:
+            if (present.present_ready(current_time)):
+                count +=1
+                self.presents.remove(present)
+
+        return count
+
 def simulate_Santa(num_elves, max_time, seed=None):
     '''
     Simulate Santa's workshop.
