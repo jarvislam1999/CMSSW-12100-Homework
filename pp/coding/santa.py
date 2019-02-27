@@ -44,7 +44,6 @@ class Santa(object):
 
         self._next_elf_index = elf_index
         self._total_num_presents += num_presents_to_make
-
     def collect_ready_presents_from_elves(self, current_time):
         total = sum(elf.remove_presents(current_time) for elf in self._elves)
         self._total_num_ready_presents += total
@@ -59,10 +58,13 @@ class Elf(object):
 
     def remove_presents(self, current_time):
         count = 0
+        new_l = []
         for present in self.presents:
             if (present.present_ready(current_time)):
                 count +=1
-                self.presents.remove(present)
+            else:
+                new_l.append(present)
+        self.presents = new_l
 
         return count
 

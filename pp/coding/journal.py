@@ -59,6 +59,7 @@ class Paper:
                 return False
         return True
 
+
 class Journal:
     ''' Class for representing journals '''
     def __init__(self, name):
